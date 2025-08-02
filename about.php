@@ -62,7 +62,7 @@ include("config.php");
                 <?php echo $row['2'];?>
                 نسعى جاهدين لتحقيق رضا العملاء من خلال تقديم خدمات متكاملة تغطي جميع جوانب المشروع، بدءًا من التصميم وحتى التسليم النهائي.</p>
                 <img src="img/signature.jpg" alt="توقيع">
-            </div>
+        </div>
             <div class="col-lg-5 pb-5" style="min-height: 400px;">
                 <div class="position-relative bg-dark-radial h-100 ms-5">
                     <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="admin/upload/<?php echo $row['3'];?>" style="object-fit: cover;" alt="صورة عن الشركة">
