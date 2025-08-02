@@ -1,0 +1,636 @@
+<?php 
+
+include("config.php");
+								
+?>  
+
+<!--	Page Loader  -->
+<!--<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
+	<div class="d-flex justify-content-center y-middle position-relative">
+	  <div class="spinner-border" role="status">
+		<span class="sr-only">Loading...</span>
+	  </div>
+	</div>
+</div>  -->
+<!--	Page Loader  -->
+
+        <!--	Header start  -->
+		<?php include("include/header.php");?>
+        <!--	Header end  -->
+	<!-- بدء الشعار -->
+
+
+   <!-- بداية السلايدر -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/carousel-1.jpg" alt="صورة">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <i class="fa fa-home fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                            <h1 class="display-2 text-uppercase text-white mb-md-4">ابنِ منزل أحلامك معنا</h1>
+                            <a href="" class="btn bg-primary py-md-3 px-md-5 mt-2">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-2.jpg" alt="صورة">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <i class="fa fa-tools fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                            <h1 class="display-2 text-uppercase text-white mb-md-4">نحن الخيار الأمثل لمشروعك</h1>
+                            <a href="" class="btn bg-primary py-md-3 px-md-5 mt-2">اتصل بنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">السابق</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">التالي</span>
+            </button>
+        </div>
+    </div>
+    <!-- نهاية السلايدر -->
+
+  <!-- About Start -->
+    <div class="container-fluid py-6 px-4">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <h1 class="display-5 text-uppercase mb-4">نحن <span class="text-primary">الرائدون</span> في صناعة البناء</h1>
+                    <h4 class="text-uppercase mb-3 text-body">نسعى دائمًا لتقديم الأفضل، مع التركيز على الجودة والدقة في كل تفصيل</h4>
+                    <p>نتميز بخبرة واسعة في مجال الإنشاءات، حيث نقدم حلولاً مبتكرة تلبي احتياجات عملائنا. فريقنا من الخبراء يعمل بدقة وإتقان لضمان تنفيذ المشاريع في الوقت المحدد وبأعلى معايير الجودة.</p>
+                    <div class="row gx-5 py-2">
+                        <div class="col-sm-6 mb-2">
+                            <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>التخطيط المثالي</p>
+                            <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>عمالة محترفة</p>
+                            <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>عمليات عمل دقيقة</p>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>مواد بناء عالية الجودة</p>
+                            <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>التزام بالمواعيد</p>
+                            <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>مراقبة الجودة</p>
+                        </div>
+                    </div>
+                    <p class="mb-4">نسعى جاهدين لتحقيق رضا العملاء من خلال تقديم خدمات متكاملة تغطي جميع جوانب المشروع، بدءًا من التصميم وحتى التسليم النهائي.</p>
+                    <img src="img/signature.jpg" alt="توقيع" class="img-fluid">
+                </div>
+                <div class="col-lg-5 pb-5" style="min-height: 400px;">
+                    <div class="position-relative bg-dark-radial h-100 ms-5">
+                        <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="img/1.jpeg" style="object-fit: cover;" alt="صورة عن الشركة">
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- نهاية قسم عن الشركة -->
+       
+    <!-- بداية قسم الخدمات -->
+<div class="container-fluid bg-light py-6 ps-5 pe-0">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">نقدم <span class="text-primary">أفضل</span> خدمات البناء</h1>
+        </div>
+     <div class="row g-5">
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/a.jpg" alt="بناء عظم">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-building text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">بناء عظم</h4>
+                    <p>نقدم خدمات بناء العظم بأعلى معايير الجودة والإتقان، باستخدام أفضل المواد لضمان متانة الهيكل.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/b.jpg" alt="تصميم أحواش">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-tree text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">تصميم أحواش</h4>
+                    <p>تصاميم مبتكرة لأحواش المنازل والفلل، تجمع بين الجمال والوظائف العملية لتلبية احتياجاتك.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/c.jpg" alt="بناء فلل">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-home text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">بناء فلل</h4>
+                    <p>بناء فلل فاخرة بتصاميم عصرية وكلاسيكية، مع الحرص على تحقيق أعلى مستويات الجودة والرفاهية.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/d.jpg" alt="ترميم مباني">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-hammer text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">ترميم مباني</h4>
+                    <p>ترميم وإعادة تأهيل المباني القديمة والتراثية، مع الحفاظ على الهوية المعمارية والقيمة التاريخية.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/e.jpg" alt="تشطيب مباني">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-paint-roller text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">تشطيب مباني</h4>
+                    <p>تشطيبات داخلية وخارجية عالية الجودة، تحويل المساحات إلى أماكن عصرية وجذابة تلبي تطلعاتك.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/f.jpg" alt="بناء هناجر">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-warehouse text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">بناء هناجر</h4>
+                    <p>تصميم وإنشاء هناجر ومستودعات صناعية وتجارية، بمواصفات عالية الجودة والمتانة لتلبية احتياجات التخزين.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                <img class="img-fluid" src="img/h.jpg" alt="تركيب سواتر">
+                <div class="service-icon bg-white">
+                    <i class="fa fa-3x fa-shield-alt text-primary"></i>
+                </div>
+                <div class="px-4 pb-4">
+                    <h4 class="text-uppercase mb-3">تركيب سواتر</h4>
+                    <p>تصميم وتركيب سواتر متنوعة لحماية المنازل والحدائق، وتوفير الخصوصية والأمان.</p>
+                    <div>
+                        <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                            <i class="fas fa-phone"> اطلب الان</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-white d-flex flex-column align-items-center text-center">
+            <img class="img-fluid" src="img/2.jpeg" alt="بناء المنشآت">
+            <div class="service-icon bg-white">
+                <i class="fa fa-3x fa-building text-primary"></i>
+            </div>
+            <div class="px-4 pb-4">
+                <h4 class="text-uppercase mb-3">بناء المنشآت</h4>
+                <p>نقدم حلولاً متكاملة لبناء المنشآت السكنية والتجارية بأعلى معايير الجودة والسلامة</p>
+                <div>
+                    <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                    <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                        <i class="fas fa-phone"> اطلب الان</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+            <img class="img-fluid" src="img/3.jpeg" alt="تجديد المنازل">
+            <div class="service-icon bg-white">
+                <i class="fa fa-3x fa-home text-primary"></i>
+            </div>
+            <div class="px-4 pb-4">
+                <h4 class="text-uppercase mb-3">تجديد المنازل</h4>
+                <p>خدمات متكاملة لتجديد وتطوير المنازل القديمة مع الحفاظ على الهوية المعمارية</p>
+                <div>
+                  <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                 <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                        <i class="fas fa-phone"> اطلب الان</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+            <img class="img-fluid" src="img/6.jpeg" alt="التصميم المعماري">
+            <div class="service-icon bg-white">
+                <i class="fa fa-3x fa-drafting-compass text-primary"></i>
+            </div>
+            <div class="px-4 pb-4">
+                <h4 class="text-uppercase mb-3">التصميم المعماري</h4>
+                <p>تصاميم مبتكرة تلبي احتياجاتك مع مراعاة الجوانب الجمالية والوظيفية</p>
+                <div>
+                  <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                 <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                        <i class="fas fa-phone"> اطلب الان</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+            <img class="img-fluid" src="img/5.jpeg" alt="التصميم الداخلي">
+            <div class="service-icon bg-white">
+                <i class="fa fa-3x fa-palette text-primary"></i>
+            </div>
+            <div class="px-4 pb-4">
+                <h4 class="text-uppercase mb-3">التصميم الداخلي</h4>
+                <p>تحويل المساحات إلى لوحات فنية تعكس ذوقك وتلبي احتياجاتك الوظيفية</p>
+                <div>
+                  <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                 <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                        <i class="fas fa-phone"> اطلب الان</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+            <img class="img-fluid" src="img/9.jpeg" alt="الصيانة والدعم">
+            <div class="service-icon bg-white">
+                <i class="fa fa-3x fa-tools text-primary"></i>
+            </div>
+            <div class="px-4 pb-4">
+                <h4 class="text-uppercase mb-3">الصيانة والدعم</h4>
+                <p>خدمات صيانة شاملة مع ضمان الجودة واستجابة سريعة لجميع احتياجاتك</p>
+                <div>
+                  <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                 <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                        <i class="fas fa-phone"> اطلب الان</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+            <img class="img-fluid" src="img/10.jpeg" alt="أعمال الدهان">
+            <div class="service-icon bg-white">
+                <i class="fa fa-3x fa-paint-brush text-primary"></i>
+            </div>
+            <div class="px-4 pb-4">
+                <h4 class="text-uppercase mb-3">أعمال الدهان</h4>
+                <p>تنفيذ أعمال الدهان باحترافية باستخدام أفضل المواد وأحدث التقنيات</p>
+                <div>
+                  <a class="btn " href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                 <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                        <i class="fas fa-phone"> اطلب الان</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <!-- نهاية قسم الخدمات -->
+
+
+        <!-- بداية قسم المشاريع -->
+        <div class="container-fluid bg-light py-6 ps-5 pe-0">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h1 class="display-5 text-uppercase mb-4">بعض من <span class="text-primary">أشهر</span> مشاريعنا</h1>
+            </div>
+            <div class="row gx-5">
+                <div class="col-12 text-center">
+                    <div class="d-inline-block bg-dark-radial text-center pt-4 ps-5 pe-0 mb-5">
+                        <ul class="list-inline mb-0" id="portfolio-flters">
+                            <li class="btn btn-outline-primary bg-white p-2 active mx-2 mb-4" data-filter="*">
+                                <img src="img/30.jpeg" style="width: 150px; height: 100px;">
+                                <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
+                                    <h6 class="text-white text-uppercase m-0">الكل</h6>
+                                </div>
+                            </li>
+                            <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".first">
+                                <img src="img/31.jpeg" style="width: 150px; height: 100px;">
+                                <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
+                                    <h6 class="text-white text-uppercase m-0">إنشاءات</h6>
+                                </div>
+                            </li>
+                            <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".second">
+                                <img src="img/32.jpeg" style="width: 150px; height: 100px;">
+                                <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
+                                    <h6 class="text-white text-uppercase m-0">ترميم</h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 portfolio-container">
+                <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                    <div class="position-relative portfolio-box">
+                        <img class="img-fluid w-100" src="img/33.jpeg" alt="مشروع إنشاءات">
+                        <a class="portfolio-title shadow-sm" href="">
+                            <p class="h4 text-uppercase">اسم المشروع</p>
+                            <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>الهدا، الطائف</span>
+                        </a>
+                        <a class="portfolio-btn" href="img/33.jpeg" data-lightbox="portfolio">
+                            <i class="bi bi-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                    <div class="position-relative portfolio-box">
+                        <img class="img-fluid w-100" src="img/27.jpeg" alt="مشروع ترميم">
+                        <a class="portfolio-title shadow-sm" href="">
+                            <p class="h4 text-uppercase">اسم المشروع</p>
+                            <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>الهدا، الطائف</span>
+                        </a>
+                        <a class="portfolio-btn" href="img/27.jpeg" data-lightbox="portfolio">
+                            <i class="bi bi-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                    <div class="position-relative portfolio-box">
+                        <img class="img-fluid w-100" src="img/28.jpeg" alt="مشروع إنشاءات">
+                        <a class="portfolio-title shadow-sm" href="">
+                            <p class="h4 text-uppercase">اسم المشروع</p>
+                            <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>الهدا، الطائف</span>
+                        </a>
+                        <a class="portfolio-btn" href="img/28.jpeg" data-lightbox="portfolio">
+                            <i class="bi bi-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                    <div class="position-relative portfolio-box">
+                        <img class="img-fluid w-100" src="img/29.jpeg" alt="مشروع ترميم">
+                        <a class="portfolio-title shadow-sm" href="">
+                            <p class="h4 text-uppercase">اسم المشروع</p>
+                            <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>الهدا، الطائف</span>
+                        </a>
+                        <a class="portfolio-btn" href="img/29.jpeg" data-lightbox="portfolio">
+                            <i class="bi bi-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                    <div class="position-relative portfolio-box">
+                        <img class="img-fluid w-100" src="img/30.jpeg" alt="مشروع إنشاءات">
+                        <a class="portfolio-title shadow-sm" href="">
+                            <p class="h4 text-uppercase">اسم المشروع</p>
+                            <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>الهدا، الطائف</span>
+                        </a>
+                        <a class="portfolio-btn" href="img/30.jpeg" data-lightbox="portfolio">
+                            <i class="bi bi-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                    <div class="position-relative portfolio-box">
+                        <img class="img-fluid w-100" src="img/31.jpeg" alt="مشروع ترميم">
+                        <a class="portfolio-title shadow-sm" href="">
+                            <p class="h4 text-uppercase">اسم المشروع</p>
+                            <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>الهدا، الطائف</span>
+                        </a>
+                        <a class="portfolio-btn" href="img/31.jpeg" data-lightbox="portfolio">
+                            <i class="bi bi-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <style>
+        .rating {
+            color: #FFD700; /* لون النجوم */
+        }
+        .testimonial {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .testimonial {
+                padding: 20px;
+            }
+            .display-5 {
+                font-size: 1.5rem; /* تقليل حجم الخط في الشاشات الصغيرة */
+            }
+        }
+    </style>
+    <div class="container-fluid bg-light py-6 px-4">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">آراء <span class="text-primary">عملائنا السعداء</span></h1>
+        </div>
+        <div class="row gx-0 align-items-center">
+            <div class="col-lg-9 mx-auto">
+                <div class="testimonial bg-light">
+                    <div class="mb-4">
+                        <h5>عميل 1:</h5>
+                        <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> كانت تجربتي رائعة! الجودة عالية والخدمة ممتازة.</p>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span>(4.5 من 5)</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5>عميل 2:</h5>
+                        <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> فريق محترف للغاية ونتائج فوق التوقعات. أنصح بالتعامل معهم.</p>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span>(5 من 5)</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5>عميل 3:</h5>
+                        <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> تجربة مدهشة! سأعود بالتأكيد لمزيد من المشاريع في المستقبل.</p>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span>(4 من 5)</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5>عميل 4:</h5>
+                        <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> خدمة عملاء ممتازة واهتمام بالتفاصيل. شكراً لكم!</p>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span>(5 من 5)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+       <style>
+        .rating {
+            color: #FFD700; /* لون النجوم */
+        }
+        .progress {
+            height: 20px;
+        }
+        .testimonial {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .testimonial {
+                padding: 20px;
+            }
+            .display-5 {
+                font-size: 1.5rem; /* تقليل حجم الخط في الشاشات الصغيرة */
+            }
+        }
+    </style>
+  <!-- بداية قسم الشهادات -->
+
+    
+
+    <div class="container-fluid bg-light py-6 px-4">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">تقييماتنا</h1>
+        </div>
+        <div class="row gx-0 align-items-center">
+            <div class="col-lg-9 mx-auto">
+                <div class="testimonial bg-light">
+                    <h4 class="text-uppercase mb-4">نظرة عامة على الأداء</h4>
+                    <div class="mb-4">
+                        <h5>سنوات الخبرة: <span class="font-weight-bold">10 سنوات</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;">90%</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5>عدد المشاريع المنفذة: <span class="font-weight-bold">150 مشروع</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%;">85%</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5>عدد العملاء السعداء: <span class="font-weight-bold">120 عميل</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%;">95%</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5>تقييم العملاء:</h5>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span>(4.5 من 5)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نهاية قسم الشهادات -->
+
+    <!-- بداية قسم المدونة -->
+    <div class="container-fluid py-6 ps-5 pe-0">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">أحدث <span class="text-primary">المقالات</span> من مشاركات مدونتنا</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="bg-light">
+                    <img class="img-fluid" src="img/6.jpeg" alt="">
+                    <div class="p-4">
+                    
+                        <h4 class="text-uppercase mb-3"> تشطيب</h4>
+                        <a class="text-uppercase fw-bold" href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="bg-light">
+                    <img class="img-fluid" src="img/7.jpeg" alt="">
+                    <div class="p-4">
+                    
+                        <h4 class="text-uppercase mb-3"> احواش</h4>
+                        <a class="text-uppercase fw-bold" href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="bg-light">
+                    <img class="img-fluid" src="img/8.jpeg" alt="">
+                    <div class="p-4">
+                    
+                        <h4 class="text-uppercase mb-3"> ترميم</h4>
+                        <a class="text-uppercase fw-bold" href="">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- نهاية قسم المدونة -->
+  
+        <!--	Footer   start-->
+		<?php include("include/footer.php");?>
+		<!--	Footer   start-->
+        
+ 
