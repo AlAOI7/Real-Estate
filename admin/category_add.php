@@ -11,9 +11,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
-<form method="POST" enctype="multipart/form-data">
-    الاسم: <input type="text" name="name"><br>
-    كلاس: <input type="text" name="class_name"><br>
-    صورة: <input type="file" name="image"><br>
-    <button type="submit">حفظ</button>
-</form>
+
+
+  <?php include("header.php"); ?>
+
+       <div class="page-wrapper">
+                <div class="content container-fluid">
+
+
+
+
+<h1>اضافة فئات</h1>
+<div class="form-container">
+    <form method="POST" >
+        <label for="name">الاسم:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="class_name">كلاس:</label>
+        <input type="text" name="class_name" id="class_name">
+
+        <label for="image">صورة:</label>
+        <input type="file" name="image" id="image">
+
+        <button type="submit">حفظ</button>
+    </form>
+</div>
+
+
+                </div>
+       </div>
+         <?php include("footer.php"); ?>

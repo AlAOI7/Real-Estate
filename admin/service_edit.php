@@ -34,15 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+  <?php include("header.php"); ?>
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>تعديل الخدمة</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="p-4">
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+
+
 
 <h2 class="mb-4">تعديل الخدمة</h2>
 
@@ -71,5 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="services.php" class="btn btn-secondary">رجوع</a>
 </form>
 
-</body>
-</html>
+                </div></div>
+  <?php include("footer.php"); ?>
+

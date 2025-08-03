@@ -43,40 +43,89 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $project_images = mysqli_query($con, "SELECT * FROM project_images WHERE project_id = $id");
 ?>
 
-<h2>تعديل المشروع</h2>
-<form method="post" enctype="multipart/form-data">
-    <label>اسم المشروع:</label>
-    <input type="text" name="name" value="<?php echo htmlspecialchars($project['name']); ?>"><br>
+ <?php include("header.php"); ?>
 
-    <label>العنوان:</label>
-    <input type="text" name="address" value="<?php echo htmlspecialchars($project['address']); ?>"><br>
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+                    
+ <a href="projects.php"  class="add-button"> مشروع </a>
 
-    <label>الخصائص:</label>
-    <input type="text" name="features" value="<?php echo htmlspecialchars($project['features']); ?>"><br>
 
-    <label>الوصف:</label>
-    <textarea name="description"><?php echo htmlspecialchars($project['description']); ?></textarea><br>
 
-    <label>الفئة:</label>
-    <select name="category_id">
-        <?php while($cat = mysqli_fetch_assoc($categories)): ?>
-            <option value="<?php echo $cat['id']; ?>" <?php if ($cat['id'] == $project['category_id']) echo 'selected'; ?>>
-                <?php echo $cat['name']; ?>
-            </option>
-        <?php endwhile; ?>
-    </select><br>
+    <h2 class="text-center my-4">تعديل المشروع</h2>
 
-    <label>صور المشروع (يمكنك رفع صور جديدة):</label>
-    <input type="file" name="images[]" multiple><br>
-
-    <label>الصور الحالية:</label><br>
-    <?php while($img = mysqli_fetch_assoc($project_images)): ?>
-        <div style="display:inline-block;margin:10px;">
-            <img src="<?php echo $img['image_path']; ?>" width="100"><br>
-            <input type="checkbox" name="delete_image_ids[]" value="<?php echo $img['id']; ?>"> حذف
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <label>اسم المشروع:</label>
+                <input type="text" name="name" value="<?php echo htmlspecialchars($project['name']); ?>" class="form-control">
+            </div>
+    
+            <div class="col-md-6">
+                <label>العنوان:</label>
+                <input type="text" name="address" value="<?php echo htmlspecialchars($project['address']); ?>" class="form-control">
+            </div>
+       
+            <div class="col-md-6">
+                <label>الخصائص:</label>
+                <input type="text" name="features" value="<?php echo htmlspecialchars($project['features']); ?>" class="form-control">
+            </div>
+       
+            <div class="col-md-6">
+                <label>الوصف:</label>
+                <textarea name="description" class="form-control" rows="4"><?php echo htmlspecialchars($project['description']); ?></textarea>
+            </div>
+       
+            <div class="col-md-6">
+                <label>الفئة:</label>
+                <select name="category_id" class="form-control">
+                    <?php while($cat = mysqli_fetch_assoc($categories)): ?>
+                        <option value="<?php echo $cat['id']; ?>" <?php if ($cat['id'] == $project['category_id']) echo 'selected'; ?>>
+                            <?php echo $cat['name']; ?>
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+       
+            <div class="col-md-6">
+                <label>صور المشروع (يمكنك رفع صور جديدة):</label>
+                <input type="file" name="images[]" multiple class="form-control-file">
+            </div>
+   
+            <div class="col-md-6">
+                <label>الصور الحالية:</label>
+                <div class="d-flex flex-wrap">
+                    <?php while($img = mysqli_fetch_assoc($project_images)): ?>
+                        <div class="text-center m-2">
+                            <img src="<?php echo $img['image_path']; ?>" width="100" class="border p-1"><br>
+                            <input type="checkbox" name="delete_image_ids[]" value="<?php echo $img['id']; ?>"> حذف
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            </div>
         </div>
-    <?php endwhile; ?>
 
-    <br><br>
-    <input type="submit" value="حفظ التعديلات">
-</form>
+        <!-- الصف الأول من الأزرار -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <input type="submit" value="💾 حفظ التعديلات" class="btn btn-success btn-block">
+            </div>
+            <div class="col-md-6">
+                <input type="reset" value="↺ إعادة تعيين" class="btn btn-warning btn-block">
+            </div>
+        </div>
+
+        <!-- الصف الثاني من الأزرار -->
+        <div class="row mt-2 mb-4">
+            
+            <div class="col-md-6">
+                <button type="button" onclick="window.history.back()" class="btn btn-danger btn-block">✖ إلغاء</button>
+            </div>
+        </div>
+    </form>
+
+
+
+                </div>
+     </div>
+      <?php include("footer.php"); ?>

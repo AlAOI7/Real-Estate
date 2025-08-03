@@ -24,17 +24,75 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
-<form method="POST" enctype="multipart/form-data">
-    الفئة:
-    <select name="category_id">
-        <?php while($cat = mysqli_fetch_assoc($categories)): ?>
-            <option value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
-        <?php endwhile; ?>
-    </select><br>
-    الاسم: <input type="text" name="name"><br>
-    الموقع: <input type="text" name="address"><br>
-    الخصائص: <input type="text" name="features"><br>
-    الوصف: <textarea name="description"></textarea><br>
-    صور المشروع: <input type="file" name="images[]" multiple><br>
-    <button type="submit">حفظ</button>
+
+
+ <?php include("header.php"); ?>
+
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+                    
+ <a href="projects.php"  class="add-button"> مشروع </a>
+
+
+<form method="POST" enctype="multipart/form-data" >
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>الفئة:</label>
+            <select name="category_id" class="form-control">
+                <?php while($cat = mysqli_fetch_assoc($categories)): ?>
+                    <option value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
+                <?php endwhile; ?>
+            </select>
+        </div>
+   
+        <div class="col-md-6">
+            <label>الاسم:</label>
+            <input type="text" name="name" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label>الموقع:</label>
+            <input type="text" name="address" class="form-control">
+        </div>
+    
+        <div class="col-md-6">
+            <label>الخصائص:</label>
+            <input type="text" name="features" class="form-control">
+        </div>
+    
+        <div class="col-md-6">
+            <label>الوصف:</label>
+            <textarea name="description" rows="4" class="form-control"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>صور المشروع: صور متعدده</label>
+            <input type="file" name="images[]" multiple class="form-control-file">
+        </div>
+    </div>
+
+    <!-- الصف الأول من الأزرار -->
+    <div class="row mb-2">
+        <div class="col-md-6 text-right">
+            <button type="submit" class="btn btn-success btn-block">💾 حفظ</button>
+        </div>
+        <div class="col-md-6 text-left">
+            <button type="reset" class="btn btn-warning btn-block">↺ إعادة تعيين</button>
+        </div>
+    </div>
+
+    <!-- الصف الثاني من الأزرار -->
+    <div class="row">
+      
+        <div class="col-md-6 text-left">
+            <button type="button" onclick="window.history.back()" class="btn btn-danger btn-block">✖ إلغاء</button>
+        </div>
+    </div>
+
 </form>
+
+                </div>
+     </div>
+      <?php include("footer.php"); ?>

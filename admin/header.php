@@ -8,7 +8,254 @@ if(!isset($_SESSION['auser']))
 	header("location:index.php");
 }
 ?>  
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
 
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>LM HOMES | About</title>
+		
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		
+		<!-- Feathericon CSS -->
+        <link rel="stylesheet" href="assets/css/feathericon.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+		
+	   <style>
+
+
+            body {
+                direction: rtl;
+                text-align: right;
+            }
+
+                    /* الهيدر */
+                .header {
+                    width: 100%;
+
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 15px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    z-index: 1000;
+                }
+
+                /* تخفي الشعار الكبير على الجوال */
+                .logo {
+                    display: inline-block;
+                }
+
+                .logo-small {
+                    display: none;
+                }
+
+                @media (max-width: 768px) {
+                    .logo {
+                        display: none;
+                    }
+
+                    .logo-small {
+                        display: inline-block;
+                    }
+
+                    .user-menu {
+                        flex-direction: column;
+                        align-items: flex-end;
+                    }
+
+                    .nav.user-menu h4 {
+                        font-size: 14px;
+                        margin: 5px 0;
+                    }
+                }
+
+
+
+                /* الشريط الجانبي */
+                .sidebar {
+                    width: 200px;
+                    background: #002950;
+                    position: fixed;
+                    top: 60px;
+                    bottom: 0;
+                    right: 0;
+                    overflow-y: auto;
+                    z-index: 999;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                /* الوضع الطبيعي للكمبيوتر */
+                .sidebar.open {
+                    transform: translateX(0);
+                }
+
+                /* مغلق على الجوال */
+                .sidebar.closed {
+                    transform: translateX(100%);
+                }
+
+                /* الجوال */
+                @media (max-width: 768px) {
+                    .sidebar {
+                        transform: translateX(100%); /* مغلق افتراضيًا */
+                    }
+
+                    .sidebar.open {
+                        transform: translateX(0);
+                    }
+
+                    .main-wrapper {
+                        padding-right: 0 !important;
+                    }
+                }
+
+            .page-wrapper {
+                margin-right: 250px; /* عرض القائمة */
+                margin-left: 0;
+            }
+
+            .sidebar .submenu ul {
+                padding-right: 15px;
+                padding-left: 0;
+            }
+
+            .user-menu {
+                margin-left: auto;
+                margin-right: 20px;
+            }
+
+            .add-button {
+                display: inline-block;
+                margin-bottom: 15px;
+                padding: 10px 20px;
+                background-color: #fae903ff;
+                color: #000;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+            .add-button:hover {
+                background-color: #fae903ff;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                direction: rtl;
+                font-family: 'Tahoma', sans-serif;
+            }
+
+            th, td {
+                padding: 12px;
+                text-align: center;
+                border: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f8f9fa;
+                font-weight: bold;
+            }
+
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            .action-buttons a {
+                margin: 0 5px;
+                padding: 6px 10px;
+                text-decoration: none;
+                border-radius: 4px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .edit-btn {
+                background-color: #007bff;
+            }
+
+            .edit-btn:hover {
+                background-color: #0069d9;
+            }
+
+            .delete-btn {
+                background-color: #dc3545;
+            }
+
+            .delete-btn:hover {
+                background-color: #c82333;
+            }
+
+            img {
+                border-radius: 5px;
+            }
+</style>
+    </head>
+    <body class="p-4">
+
+ 
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        font-family: 'Tahoma', sans-serif;
+        direction: rtl;
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .form-container button {
+        padding: 10px 25px;
+        background-color: #fae903ff;
+        color: #000;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .form-container button:hover {
+        background-color: #fae903ff;
+    }
+</style>
   	<!-- تقديم العقار -->
 <div class="header">
     
@@ -78,6 +325,7 @@ if(!isset($_SESSION['auser']))
                 <li> 
                     <a href="dashboard.php"><i class="fe fe-home"></i> <span>لوحة التحكم</span></a>
                 </li>
+                  
                 
                 <li class="menu-title"> 
                     <span>المصادقة</span>
@@ -206,3 +454,15 @@ if(!isset($_SESSION['auser']))
     </div>
 </div>
 <!-- /الشريط الجانبي -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var mobileBtn = document.getElementById("mobile_btn");
+        var sidebar = document.getElementById("sidebar");
+
+        mobileBtn.addEventListener("click", function() {
+            sidebar.classList.toggle("open");
+        });
+    });
+</script>
+
+

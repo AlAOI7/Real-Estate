@@ -12,21 +12,27 @@ if (isset($_GET['delete_id'])) {
 $result = mysqli_query($con, "SELECT * FROM services ORDER BY id DESC");
 ?>
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>إدارة الخدمات</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-</head>
-<body class="p-4">
+
+  <?php include("header.php"); ?>
+
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+
 
 <h2 class="mb-4">قائمة الخدمات</h2>
 
 <a href="service_create.php" class="btn btn-success mb-3">إضافة خدمة جديدة</a>
 
-<table class="table table-bordered table-striped text-center">
+ <div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">الخدمات </h4>
+									
+								</div>
+								<div class="card-body">
+
+<table class="table table-bordered table-striped text-center" id="basic-datatable">
     <thead>
         <tr>
             <th>رقم</th>
@@ -59,6 +65,11 @@ $result = mysqli_query($con, "SELECT * FROM services ORDER BY id DESC");
         <?php endif; ?>
     </tbody>
 </table>
+                                </div>
+                            </div>
+                        </div>
+ </div>
+                </div>
+     </div>
+  <?php include("footer.php"); ?>
 
-</body>
-</html>

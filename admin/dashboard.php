@@ -1,212 +1,215 @@
 <?php
-session_start();
-require("config.php");
-////code
- 
-if(!isset($_SESSION['auser']))
-{
-	header("location:index.php");
+include 'config.php';
+
+// استعلام للحصول على عدد المشاريع فقط
+$query = "SELECT COUNT(*) as total_projects FROM projects";
+$result = mysqli_query($con, $query);
+
+$total_projects = 0;
+if ($result) {
+	$row = mysqli_fetch_assoc($result);
+	$total_projects = $row['total_projects'];
+}
+
+$result = mysqli_query($con, "SELECT COUNT(*) as total_services FROM services");
+$total_services = 0;
+
+if ($result) {
+	$row = mysqli_fetch_assoc($result);
+	$total_services = $row['total_services'];
+}
+// استعلام لحساب عدد المستخدمين الكلي
+$query = "SELECT COUNT(*) as total_users FROM user";
+$res = mysqli_query($con, $query);
+
+$total_users = 0;
+if ($res) {
+	$row = mysqli_fetch_assoc($res);
+	$total_users = $row['total_users'];
+}
+$query = "SELECT COUNT(*) as total_contacts FROM contact";
+$result = mysqli_query($con, $query);
+
+$total_contacts = 0;
+if ($result) {
+	$row = mysqli_fetch_assoc($result);
+	$total_contacts = $row['total_contacts'];
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Ventura - Dashboard</title>
-		
-		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-		
-		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		
-		<!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-		
-		<!-- Feathericon CSS -->
-        <link rel="stylesheet" href="assets/css/feathericon.min.css">
-		
-		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
-		
-		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
-		
-		<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-    </head>
-    <body>
-	
-		<!-- Main Wrapper -->
 
-		
-			<!-- Header -->
-				<?php include("header.php"); ?>
-			<!-- /Header -->
-			
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-			
-                <div class="content container-fluid">
-					
-					<!-- Page Header -->
-					<div class="page-header">
-						<div class="row">
-							<div class="col-sm-12">
-								<h3 class="page-title">Welcome Admin!</h3>
-								<p></p>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item active">Dashboard</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /Page Header -->
+<!-- Main Wrapper -->
 
-					<div class="row">
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-primary">
-											<i class="fe fe-users"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-										<h3>1234</h3>
-										
-										<h6 class="text-muted">Users</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-primary w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-success">
-											<i class="fe fe-users"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-										<h3>123</h3>
-										
-										<h6 class="text-muted">Request Blood</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-success w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-danger">
-											<i class="fe fe-users"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-										<h3>432</h3>
-										
-										<h6 class="text-muted">Donor</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-danger w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-warning">
-											<i class="fe fe-users"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-										<h3>342</h3>
-										
-										<h6 class="text-muted">Contact Message</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-warning w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- Header -->
+<?php include("header.php"); ?>
+<!-- /Header -->
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+	<div class="content container-fluid">
 
-					<div class="row">
-						<div class="col-md-12 col-lg-6">
-						
-							<!-- Sales Chart -->
-							<div class="card card-chart">
-								<div class="card-header">
-									<h4 class="card-title">Sales Overview</h4>
-								</div>
-								<div class="card-body">
-									<div id="morrisArea"></div>
-								</div>
-							</div>
-							<!-- /Sales Chart -->
-							
-						</div>
-						<div class="col-md-12 col-lg-6">
-						
-							<!-- Invoice Chart -->
-							<div class="card card-chart">
-								<div class="card-header">
-									<h4 class="card-title">Order Status</h4>
-								</div>
-								<div class="card-body">
-									<div id="morrisLine"></div>
-								</div>
-							</div>
-							<!-- /Invoice Chart -->
-							
-						</div>	
-					</div>
-				</div>			
+		<!-- رأس الصفحة -->
+		<div class="page-header">
+			<div class="row">
+				<div class="col-sm-12">
+					<h3 class="page-title">مرحباً بك، المدير!</h3>
+					<p></p>
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item active">لوحة التحكم</li>
+					</ul>
+				</div>
 			</div>
-			<!-- /Page Wrapper -->
-		
+		</div>
+		<!-- /رأس الصفحة -->
 
-		<!-- /Main Wrapper -->
-		
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.2.1.min.js"></script>
-		
-		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- Slimscroll JS -->
-        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		
-		<script src="assets/plugins/raphael/raphael.min.js"></script>    
-		<script src="assets/plugins/morris/morris.min.js"></script>  
-		<script src="assets/js/chart.morris.js"></script>
-		
-		<!-- Custom JS -->
-		<script  src="assets/js/script.js"></script>
-		
-    </body>
+		<div class="row">
+			<div class="col-xl-3 col-sm-6 col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="dash-widget-header">
+							<span class="dash-widget-icon bg-primary">
+								<i class="fe fe-users"></i>
+							</span>
+						</div>
+						<div class="dash-widget-info">
+							<h3><?php echo $total_users; ?></h3>
+							<h6 class="text-muted">المستخدمين</h6>
+							<div class="progress progress-sm">
+								<div class="progress-bar bg-primary w-50"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-xl-3 col-sm-6 col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="dash-widget-header">
+							<span class="dash-widget-icon bg-success">
+								<i class="fe fe-users"></i>
+							</span>
+						</div>
+						<div class="dash-widget-info">
+							<h3><?php echo $total_projects; ?></h3>
+							<h6 class="text-muted">عدد المشاريع</h6>
+							<div class="progress progress-sm">
+								<div class="progress-bar bg-success w-50"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xl-3 col-sm-6 col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="dash-widget-header">
+							<span class="dash-widget-icon bg-danger">
+								<i class="fe fe-users"></i>
+							</span>
+						</div>
+						<div class="dash-widget-info">
+							<h3><?php echo $total_services; ?></h3>
+							<h6 class="text-muted">الخدمات</h6>
+							<div class="progress progress-sm">
+								<div class="progress-bar bg-danger w-50"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xl-3 col-sm-6 col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="dash-widget-header">
+							<span class="dash-widget-icon bg-warning">
+								<i class="fe fe-users"></i>
+							</span>
+						</div>
+						<div class="dash-widget-info">
+							<h3><?php echo $total_contacts; ?></h3>
+							<h6 class="text-muted">رسائل التواصل</h6>
+							<div class="progress progress-sm">
+								<div class="progress-bar bg-warning w-50"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-group d-flex flex-wrap" role="group" aria-label="Page Navigation">
+            
+            <a href="admin_comments.php" class="btn btn-primary m-2 flex-fill">تعليقات الإدارة</a>
+            
+            <a href="projects.php" class="btn btn-success m-2 flex-fill">المشاريع</a>
+            
+            <a href="blog_list.php" class="btn btn-info m-2 flex-fill">المدونة</a>
+            
+            <a href="categories.php" class="btn btn-warning m-2 flex-fill">التصنيفات</a>
+            
+            <a href="indexsliders.php" class="btn btn-secondary m-2 flex-fill">الشرائح</a>
+            
+            <a href="reviewsindex.php" class="btn btn-danger m-2 flex-fill">المراجعات</a>
+            
+            <a href="contactview.php" class="btn btn-dark m-2 flex-fill">رسائل التواصل</a>
+
+        </div>
+    </div>
+</div>
+
+		<div class="row">
+			<!-- مخطط المبيعات -->
+			<div class="col-md-12 col-lg-6">
+				<div class="card card-chart">
+					<div class="card-header">
+						<h4 class="card-title">نظرة عامة على المبيعات</h4>
+					</div>
+					<div class="card-body">
+						<div id="morrisArea"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /مخطط المبيعات -->
+
+			<!-- مخطط الطلبات -->
+			<div class="col-md-12 col-lg-6">
+				<div class="card card-chart">
+					<div class="card-header">
+						<h4 class="card-title">حالة الطلبات</h4>
+					</div>
+					<div class="card-body">
+						<div id="morrisLine"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /مخطط الطلبات -->
+		</div>
+	</div>
+</div>
+
+<!-- /Main Wrapper -->
+
+<!-- jQuery -->
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Slimscroll JS -->
+<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="assets/plugins/raphael/raphael.min.js"></script>
+<script src="assets/plugins/morris/morris.min.js"></script>
+<script src="assets/js/chart.morris.js"></script>
+
+<!-- Custom JS -->
+<script src="assets/js/script.js"></script>
+
+</body>
 
 </html>

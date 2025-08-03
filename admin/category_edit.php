@@ -16,6 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
+
+
+  <?php include("header.php"); ?>
+
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+<h1>تعديل فئات</h1>
+<div class="form-container">
+
 <form method="POST" enctype="multipart/form-data">
     الاسم: <input type="text" name="name" value="<?= $row['name'] ?>"><br>
     كلاس: <input type="text" name="class_name" value="<?= $row['class_name'] ?>"><br>
@@ -23,3 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <img src="<?= $row['image'] ?>" width="50"><br>
     <button type="submit">تعديل</button>
 </form>
+
+</div>
+                </div>
+
+                
+  <?php include("footer.php"); ?>

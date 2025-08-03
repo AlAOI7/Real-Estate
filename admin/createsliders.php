@@ -1,20 +1,53 @@
-<?php include 'config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>إضافة سلايدر</title>
 </head>
-<body>
+   <?php include("header.php"); ?>
+
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+                    
+
     <h2>إضافة سلايدر جديد</h2>
-    <form action="" method="POST" enctype="multipart/form-data">
-        <label>الصورة:</label><input type="file" name="image"><br>
-        <label>العنوان:</label><input type="text" name="title"><br>
-        <label>الوصف:</label><input type="text" name="subtitle"><br>
-        <label>نص الزر:</label><input type="text" name="button_text"><br>
-        <label>رابط الزر:</label><input type="text" name="button_link"><br>
-        <input type="submit" name="submit" value="حفظ">
-    </form>
+ <a href="indexsliders.php"  class="add-button"> سلايدر </a>
+<form method="POST" enctype="multipart/form-data" class="container mt-4" style="max-width: 700px;">
+    <h3 class="mb-4 text-center">إضافة عنصر جديد</h3>
+    <div class="row g-3">
+
+        <div class="col-md-6">
+            <label for="image" class="form-label">الصورة:</label>
+            <input type="file" id="image" name="image" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label for="title" class="form-label">العنوان:</label>
+            <input type="text" id="title" name="title" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label for="subtitle" class="form-label">الوصف:</label>
+            <input type="text" id="subtitle" name="subtitle" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label for="button_text" class="form-label">نص الزر:</label>
+            <input type="text" id="button_text" name="button_text" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label for="button_link" class="form-label">رابط الزر:</label>
+            <input type="text" id="button_link" name="button_link" class="form-control">
+        </div>
+
+        <div class="col-12 text-center mt-3">
+            <input type="submit" name="submit" value="حفظ" class="btn btn-primary px-5">
+        </div>
+    </div>
+</form>
+
 
     <?php
     if (isset($_POST['submit'])) {
@@ -34,5 +67,6 @@
         }
     }
     ?>
-</body>
-</html>
+                </div>
+     </div>
+  <?php include("footer.php"); ?>

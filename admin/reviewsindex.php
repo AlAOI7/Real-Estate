@@ -6,10 +6,25 @@
     <title>عرض التقييمات</title>
 </head>
 <body>
-    <h2>قائمة التقييمات</h2>
-    <a href="reviewscreate.php">إضافة تقييم جديد</a>
-    <table border="1" cellpadding="8">
-        <thead>
+      <?php include("header.php"); ?>
+
+     <div class="page-wrapper">
+                <div class="content container-fluid">
+
+
+   
+    <a href="reviewscreate.php"  class="add-button">إضافة تقييم جديد</a>
+   <div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">تقييم </h4>
+									
+								</div>
+								<div class="card-body">
+
+<table class="table table-bordered table-striped text-center" id="basic-datatable">
+        
             <tr>
                 <th>الخبرة</th>
                 <th>المشاريع</th>
@@ -17,10 +32,9 @@
                 <th>التقييم العام</th>
                 <th>تحكم</th>
             </tr>
-        </thead>
-        <tbody>
+      
             <?php
-            $result = $conn->query("SELECT * FROM reviews");
+            $result = $con->query("SELECT * FROM reviews");
             while ($row = $result->fetch_assoc()):
             ?>
             <tr>
@@ -28,13 +42,19 @@
                 <td><?= $row['projects_count'] ?> مشروع (<?= $row['projects_percent'] ?>%)</td>
                 <td><?= $row['clients_count'] ?> عميل (<?= $row['clients_percent'] ?>%)</td>
                 <td><?= $row['overall_rating'] ?> / 5</td>
-                <td>
-                    <a href="reviewsedit.php?id=<?= $row['id'] ?>">تعديل</a> |
-                    <a href="reviewsdelete.php?id=<?= $row['id'] ?>" onclick="return confirm('هل تريد الحذف؟')">حذف</a>
+                <td class="action-buttons">
+                    <a  class="edit-btn" href="reviewsedit.php?id=<?= $row['id'] ?>">تعديل</a> 
+                    <a class="delete-btn" href="reviewsdelete.php?id=<?= $row['id'] ?>" onclick="return confirm('هل تريد الحذف؟')">حذف</a>
                 </td>
             </tr>
             <?php endwhile; ?>
-        </tbody>
+        
     </table>
-</body>
-</html>
+                                </div>
+                            </div>
+                        </div>
+   </div>
+
+                </div>
+     </div>
+ <?php include("footer.php"); ?>

@@ -34,14 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8" />
-    <title>تعديل المقال</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body class="p-4">
+
+
+
+    <?php include("header.php"); ?>
+   <div class="page-wrapper">
+                <div class="content container-fluid">
+
 
 <div class="container" style="max-width: 700px;">
     <h1 class="mb-4">تعديل المقال</h1>
@@ -71,6 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="blog_list.php" class="btn btn-secondary ms-2">إلغاء</a>
     </form>
 </div>
-
-</body>
-</html>
+                </div>
+   </div>
+ <?php include("footer.php"); ?>
