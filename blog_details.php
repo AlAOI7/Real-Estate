@@ -65,57 +65,34 @@ if (!$article) {
             </div>
             <!-- نهاية تفاصيل المدونة -->
             
-            <!-- بداية قائمة التعليقات -->
-            <div class="mb-5">
-                <h3 class="text-uppercase mb-4">التعليقات</h3>
-                <?php
-                // استعلام لجلب التعليقات من قاعدة البيانات
-                $comments_query = "SELECT * FROM article_comments WHERE article_id = $id ORDER BY created_at DESC";
-                $comments_result = mysqli_query($con, $comments_query);
-                
-                if (mysqli_num_rows($comments_result) > 0) {
-                    while ($comment = mysqli_fetch_assoc($comments_result)) {
-                        echo '
-                        <div class="d-flex mb-4">
-                            <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;" alt="صورة المستخدم">
-                            <div class="ps-3">
-                                <h6><a href="">' . htmlspecialchars($comment['author_name']) . '</a> <small><i>' . date('d M Y', strtotime($comment['created_at'])) . '</i></small></h6>
-                                <p>' . htmlspecialchars($comment['comment_text']) . '</p>
-                                <button class="btn btn-sm btn-light">رد</button>
-                            </div>
-                        </div>';
-                    }
-                } else {
-                    echo '<p>لا توجد تعليقات بعد.</p>';
-                }
-                ?>
-            </div>
-            <!-- نهاية قائمة التعليقات -->
-            
+       
             <!-- بداية نموذج التعليق -->
-            <div class="bg-light p-5">
-                <h3 class="text-uppercase mb-4">اترك تعليقاً</h3>
-                <form action="add_comment.php" method="POST">
-                    <input type="hidden" name="article_id" value="<?php echo $id; ?>">
-                    <div class="row g-3">
-                        <div class="col-12 col-sm-6">
-                            <input type="text" name="name" class="form-control bg-white border-0" placeholder="اسمك" style="height: 55px;" required>
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <input type="email" name="email" class="form-control bg-white border-0" placeholder="بريدك الإلكتروني" style="height: 55px;" required>
-                        </div>
-                        <div class="col-12">
-                            <input type="text" name="website" class="form-control bg-white border-0" placeholder="الموقع الإلكتروني" style="height: 55px;">
-                        </div>
-                        <div class="col-12">
-                            <textarea name="comment" class="form-control bg-white border-0" rows="5" placeholder="التعليق" required></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn bg-primary w-100 py-3" type="submit">اترك تعليقك</button>
-                        </div>
-                    </div>
-                </form>
+
+
+<div class="bg-light p-5">
+    <h3 class="text-uppercase mb-4">اترك تعليقاً</h3>
+    <form action="add_comment.php" method="POST">
+        <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($id); ?>">
+        <div class="row g-3">
+            <div class="col-12 col-sm-6">
+                <input type="text" name="name" class="form-control bg-white border-0" placeholder="اسمك" style="height: 55px;" required>
             </div>
+            <div class="col-12 col-sm-6">
+                <input type="email" name="email" class="form-control bg-white border-0" placeholder="بريدك الإلكتروني" style="height: 55px;" required>
+            </div>
+            <div class="col-12">
+                <input type="url" name="website" class="form-control bg-white border-0" placeholder="الموقع الإلكتروني" style="height: 55px;">
+            </div>
+            <div class="col-12">
+                <textarea name="comment" class="form-control bg-white border-0" rows="5" placeholder="التعليق" required></textarea>
+            </div>
+            <div class="col-12">
+                <button class="btn bg-primary w-100 py-3" type="submit">اترك تعليقك</button>
+            </div>
+        </div>
+    </form>
+</div>
+
             <!-- نهاية نموذج التعليق -->
         </div>
         

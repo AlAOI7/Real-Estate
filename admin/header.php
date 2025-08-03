@@ -8,6 +8,7 @@ if(!isset($_SESSION['auser']))
 	header("location:index.php");
 }
 ?>  
+
   	<!-- تقديم العقار -->
 <div class="header">
     
@@ -114,10 +115,63 @@ if(!isset($_SESSION['auser']))
                     </ul>
                 </li>
                 
-                <li class="menu-title"> 
-                    <span>الولاية والمدينة</span>
+                
+               <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> المدونه</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="blog_create.php"> اضافه </a></li>
+                        <li><a href="blog_list.php"> عرض </a></li>
+                    </ul>
                 </li>
-            
+                 <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> الفئات</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="category_add.php"> اضافه </a></li>
+                        <li><a href="categories.php"> عرض </a></li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> التعليقات</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                    
+                        <li><a href="admin_comments.php"> عرض </a></li>
+                    </ul>
+                </li>
+                 <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> الخدمات</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="service_create.php"> اضافه </a></li>
+                        <li><a href="services.php"> عرض </a></li>
+                    </ul>
+                </li>
+                 <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> تقيمات</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="reviewscreate.php"> اضافه </a></li>
+                        <li><a href="reviewsindex.php"> عرض </a></li>
+                    </ul>
+                </li>
+                 <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> الشراح</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="createsliders.php"> اضافه </a></li>
+                        <li><a href="indexsliders.php"> عرض </a></li>
+                    </ul>
+                </li>
+                 <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> المشاريع</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="project_add.php"> اضافه </a></li>
+                        <li><a href="projects.php"> عرض </a></li>
+                    </ul>
+                </li>
+
+
+
+
+
+
                 <li class="submenu">
                     <a href="#"><i class="fe fe-user"></i> <span>الولاية والمدينة</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">

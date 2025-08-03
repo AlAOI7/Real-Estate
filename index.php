@@ -564,6 +564,13 @@ include("config.php");
 
     
 
+  <?php
+
+    // جلب أول تقييم (أو يمكنك استخدام LIMIT أو WHERE إذا أردت التحكم)
+    $result = $con->query("SELECT * FROM reviews ORDER BY id DESC LIMIT 1");
+    $review = $result->fetch_assoc();
+    ?>
+
     <div class="container-fluid bg-light py-6 px-4">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h1 class="display-5 text-uppercase mb-4">تقييماتنا</h1>
@@ -572,34 +579,49 @@ include("config.php");
             <div class="col-lg-9 mx-auto">
                 <div class="testimonial bg-light">
                     <h4 class="text-uppercase mb-4">نظرة عامة على الأداء</h4>
+
                     <div class="mb-4">
-                        <h5>سنوات الخبرة: <span class="font-weight-bold">10 سنوات</span></h5>
+                        <h5>سنوات الخبرة: <span class="font-weight-bold"><?= $review['experience_years'] ?> سنوات</span></h5>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%;">90%</div>
+                            <div class="progress-bar" role="progressbar" style="width: <?= $review['experience_percent'] ?>%;">
+                                <?= $review['experience_percent'] ?>%
+                            </div>
                         </div>
                     </div>
+
                     <div class="mb-4">
-                        <h5>عدد المشاريع المنفذة: <span class="font-weight-bold">150 مشروع</span></h5>
+                        <h5>عدد المشاريع المنفذة: <span class="font-weight-bold"><?= $review['projects_count'] ?> مشروع</span></h5>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%;">85%</div>
+                            <div class="progress-bar" role="progressbar" style="width: <?= $review['projects_percent'] ?>%;">
+                                <?= $review['projects_percent'] ?>%
+                            </div>
                         </div>
                     </div>
+
                     <div class="mb-4">
-                        <h5>عدد العملاء السعداء: <span class="font-weight-bold">120 عميل</span></h5>
+                        <h5>عدد العملاء السعداء: <span class="font-weight-bold"><?= $review['clients_count'] ?> عميل</span></h5>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 95%;">95%</div>
+                            <div class="progress-bar" role="progressbar" style="width: <?= $review['clients_percent'] ?>%;">
+                                <?= $review['clients_percent'] ?>%
+                            </div>
                         </div>
                     </div>
+
                     <div class="mb-4">
                         <h5>تقييم العملاء:</h5>
                         <span class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            <?php
+                            $fullStars = floor($review['overall_rating']);
+                            $halfStar = ($review['overall_rating'] - $fullStars) >= 0.5;
+                            for ($i = 0; $i < $fullStars; $i++) {
+                                echo '<i class="fas fa-star"></i>';
+                            }
+                            if ($halfStar) {
+                                echo '<i class="fas fa-star-half-alt"></i>';
+                            }
+                            ?>
                         </span>
-                        <span>(4.5 من 5)</span>
+                        <span>(<?= $review['overall_rating'] ?> من 5)</span>
                     </div>
                 </div>
             </div>
