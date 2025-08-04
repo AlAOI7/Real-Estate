@@ -126,7 +126,7 @@ include("config.php");
                                 ?>
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center p-3">
-                                        <img class="img-fluid mb-3" src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+                                        <img class="img-fluid mb-3" src="admin/uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
                                         <div class="service-icon bg-white mb-3">
                                             <i class="fa fa-3x <?php echo htmlspecialchars($row['icon_class']); ?> text-primary"></i>
                                         </div>
@@ -427,7 +427,7 @@ include("config.php");
                                 <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4 <?php echo ($filter == $cat['class_name'] || ($filter == '*' && $cat['class_name']=='*')) ? 'active' : '' ?>"
                                     data-filter="<?php echo $cat['class_name']; ?>">
                                     <a href="?filter=<?php echo $cat['class_name']; ?>" style="text-decoration:none; color:inherit;">
-                                        <img src="<?php echo htmlspecialchars($cat['image']); ?>" style="width: 150px; height: 100px;">
+                                        <img src="admin/uploads/<?php echo htmlspecialchars($cat['image']); ?>" style="width: 150px; height: 100px;">
                                         <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
                                             <h6 class="text-white text-uppercase m-0"><?php echo htmlspecialchars($cat['name']); ?></h6>
                                         </div>
@@ -449,7 +449,7 @@ include("config.php");
                     ?>
                     <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item <?php echo htmlspecialchars($project['class_name']); ?>">
                         <div class="position-relative portfolio-box">
-                            <img class="img-fluid w-100" src="<?php echo htmlspecialchars($img_src); ?>" alt="<?php echo htmlspecialchars($project['name']); ?>">
+                            <img class="img-fluid w-100" src="admin/uploads/<?php echo htmlspecialchars($img_src); ?>" alt="<?php echo htmlspecialchars($project['name']); ?>">
                             <a class="portfolio-title shadow-sm" href="project_details.php?id=<?php echo $proj_id; ?>">
                                 <p class="h4 text-uppercase"><?php echo htmlspecialchars($project['name']); ?></p>
                                 <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i><?php echo htmlspecialchars($project['address']); ?></span>
@@ -648,7 +648,7 @@ $result = mysqli_query($con, $query);
         <?php while($article = mysqli_fetch_assoc($result)): ?>
         <div class="col-lg-4 col-md-6">
             <div class="bg-light">
-                <img class="img-fluid" src="<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
+                <img class="img-fluid" src="admin/uploads/<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
                 <div class="p-4">
                     <h4 class="text-uppercase mb-3"><?php echo htmlspecialchars($article['title']); ?></h4>
                     <p><?php echo htmlspecialchars(mb_strimwidth($article['short_details'], 0, 80, '...')); ?></p>
