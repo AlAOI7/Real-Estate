@@ -8,39 +8,33 @@ $msg = "";
 
 if (isset($_POST['login'])) {
     $email = trim($_POST['email'] ?? '');
-    $pass  = trim($_POST['pass'] ?? '');
+    $pass = trim($_POST['pass'] ?? '');
 
     if (!empty($email) && !empty($pass)) {
-        // حماية من حقن SQL
+        // أمان: حماية من حقن SQL
         $email_safe = mysqli_real_escape_string($con, $email);
+        $pass_safe = mysqli_real_escape_string($con, $pass);
 
-        // جلب بيانات المستخدم بناءً على البريد فقط
-        $sql = "SELECT * FROM user WHERE uemail='$email_safe' LIMIT 1";
+        $sql = "SELECT * FROM user WHERE uemail='$email_safe' AND upass='$pass_safe' LIMIT 1";
         $result = mysqli_query($con, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            $hashed_password = $row['upass'];
 
-            // تحقق من كلمة المرور المدخلة باستخدام password_verify
-            if (password_verify($pass, $hashed_password)) {
-                // كلمة المرور صحيحة - تسجيل الدخول
-                $_SESSION['uid']    = $row['uid'];
-                $_SESSION['uemail'] = $row['uemail'];
+            // تعيين الجلسة
+            $_SESSION['uid'] = $row['uid'];
+            $_SESSION['uemail'] = $row['uemail'];
 
-                header("Location: index.php");
-                exit();
-            } else {
-                $error = "<p class='alert alert-warning'>كلمة المرور غير صحيحة.</p>";
-            }
+            // توجيه إلى الصفحة الرئيسية
+            header("Location: index.php");
+            exit();
         } else {
-            $error = "<p class='alert alert-warning'>البريد الإلكتروني غير مسجل.</p>";
+            $error = "<p class='alert alert-warning'>البريد الإلكتروني أو كلمة المرور غير صحيحة.</p>";
         }
     } else {
         $error = "<p class='alert alert-warning'>يرجى ملء جميع الحقول.</p>";
     }
 }
-
 ?>
 <!--	Header start  -->
 

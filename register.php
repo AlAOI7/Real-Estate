@@ -4,6 +4,61 @@ include("config.php");
 $error = "";
 $msg = "";
 
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reg'])) {
+//     // التحقق من reCAPTCHA
+//     $recaptcha = $_POST['g-recaptcha-response'] ?? '';
+//     $secret = '6Ld6gZcrAAAAAFgE1SV4icUgEVHgrOMPuUGC2G9U';
+
+//     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha");
+//     $resData = json_decode($response);
+
+//     if (!$resData || !$resData->success) {
+//         $error = "<p class='alert alert-warning'>فشل التحقق من reCAPTCHA. حاول مرة أخرى.</p>";
+//     } else {
+//         // استلام البيانات
+//         $name   = trim($_POST['name']);
+//         $email  = trim($_POST['email']);
+//         $phone  = trim($_POST['phone']);
+//         $pass   = trim($_POST['pass']);
+//         $utype  = $_POST['utype'] ?? 'user';
+
+//         $uimage = $_FILES['uimage']['name'];
+//         $temp_name1 = $_FILES['uimage']['tmp_name'];
+
+//         // التحقق من البريد
+//         $query = "SELECT * FROM user WHERE uemail='$email'";
+//         $res = mysqli_query($con, $query);
+//         $num = mysqli_num_rows($res);
+
+//         if ($num == 1) {
+//             $error = "<p class='alert alert-warning'>البريد الإلكتروني موجود مسبقًا</p>";
+//         } else {
+//             // التأكد من أن جميع الحقول ممتلئة
+//             if (!empty($name) && !empty($email) && !empty($phone) && !empty($pass) && !empty($uimage)) {
+//                 // تشفير كلمة المرور
+//                 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
+
+//                 // إدخال البيانات
+//                 $sql = "INSERT INTO user (uname, uemail, uphone, upass, utype, uimage) 
+//                         VALUES ('$name', '$email', '$phone', '$hashed_pass', '$utype', '$uimage')";
+//                 $result = mysqli_query($con, $sql);
+
+//                 // رفع الصورة
+//                 move_uploaded_file($temp_name1, "admin/user/$uimage");
+
+//                 if ($result) {
+//                     // تحويل إلى الصفحة الرئيسية
+//                     header("Location: login.php");
+//                     exit;
+//                 } else {
+//                     $error = "<p class='alert alert-warning'>فشل في عملية التسجيل</p>";
+//                 }
+//             } else {
+//                 $error = "<p class='alert alert-warning'>يرجى ملء جميع الحقول</p>";
+//             }
+//         }
+//     }
+// }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reg'])) {
     // التحقق من reCAPTCHA
     $recaptcha = $_POST['g-recaptcha-response'] ?? '';
@@ -35,12 +90,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reg'])) {
         } else {
             // التأكد من أن جميع الحقول ممتلئة
             if (!empty($name) && !empty($email) && !empty($phone) && !empty($pass) && !empty($uimage)) {
-                // تشفير كلمة المرور
-                $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
-
-                // إدخال البيانات
+                // إدخال البيانات بدون تشفير كلمة المرور
                 $sql = "INSERT INTO user (uname, uemail, uphone, upass, utype, uimage) 
-                        VALUES ('$name', '$email', '$phone', '$hashed_pass', '$utype', '$uimage')";
+                        VALUES ('$name', '$email', '$phone', '$pass', '$utype', '$uimage')";
                 $result = mysqli_query($con, $sql);
 
                 // رفع الصورة
