@@ -1,8 +1,10 @@
 <?php 
-
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+session_start();
 include("config.php");
 								
-?>  
+?>
 
 <!--	Page Loader  -->
 <!--<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
@@ -31,8 +33,9 @@ include("config.php");
             while ($row = mysqli_fetch_assoc($query)) {
             ?>
             <div class="carousel-item <?= $first ? 'active' : '' ?>">
-                <img class="w-100" src="uploads/<?= htmlspecialchars($row['image']) ?>" alt="صورة">
-                <img class="w-100" src="img/carousel-2.jpg" alt="صورة">
+               <img class="w-100" src="admin/uploads/<?= htmlspecialchars($row['image']) ?>" alt="صورة" >
+
+                <!-- <img class="w-100" src="img/carousel-2.jpg" alt="صورة"> -->
 
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">

@@ -1,7 +1,12 @@
 
-<?php include("include/header.php");?>
+<?php 
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+session_start();
+include("config.php");								
+?>
 <?php
-include 'config.php';
+
 
 $id = intval($_GET['id'] ?? 0);
 if ($id <= 0) {
@@ -22,7 +27,9 @@ $images = [];
 while ($row = mysqli_fetch_assoc($images_res)) {
     $images[] = $row['image_path'];
 }
-?><style>
+?>
+<?php include("include/header.php");?>
+<style>
     .main-image-container {
         text-align: center;
         margin-bottom: 20px;
@@ -89,14 +96,18 @@ while ($row = mysqli_fetch_assoc($images_res)) {
 </style>
 
 <!-- الصورة الرئيسية -->
-<div class="main-image-container">
+<!-- <div class="main-image-container">
     <img id="mainImage" src="<?php echo htmlspecialchars($images[0]); ?>" alt="Main Project Image" class="main-image">
+</div> -->
+<div class="main-image-container">
+    <img id="mainImage" src="admin/uploads/<?php echo htmlspecialchars($images[0]); ?>" alt="Main Project Image" class="main-image">
 </div>
+
 <h4>صور المشروع</h4>
 <!-- الصور المصغرة -->
 <div class="thumbnail-slider">
     <?php foreach ($images as $img_path): ?>
-        <img src="<?php echo htmlspecialchars($img_path); ?>" alt="Project Image" onclick="changeMainImage(this)">
+        <img src="admin/uploads/<?php echo htmlspecialchars($img_path); ?>" alt="Project Image" onclick="changeMainImage(this)">
     <?php endforeach; ?>
 </div>
 

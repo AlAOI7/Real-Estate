@@ -1,51 +1,67 @@
-<?php 
+<?php
 include("config.php");
-$error="";
-$msg="";
-// التحقق من reCAPTCHA
-$recaptcha = $_POST['g-recaptcha-response'] ?? '';
-$secret = '6Ld6gZcrAAAAAFgE1SV4icUgEVHgrOMPuUGC2G9U';
 
-$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha");
-$resData = json_decode($response);
+$error = "";
+$msg = "";
 
-if (!$resData || !$resData->success) {
-    $error = "<p class='alert alert-warning'>فشل التحقق من reCAPTCHA. حاول مرة أخرى.</p>";
-} else {
-    // تابع باقي المعالجة هنا
-    $name = $_REQUEST['name'];
-    $email = $_REQUEST['email'];
-    $phone = $_REQUEST['phone'];
-    $pass = $_REQUEST['pass'];
-    $utype = $_REQUEST['utype'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reg'])) {
+    // التحقق من reCAPTCHA
+    $recaptcha = $_POST['g-recaptcha-response'] ?? '';
+    $secret = '6Ld6gZcrAAAAAFgE1SV4icUgEVHgrOMPuUGC2G9U';
 
-    $uimage = $_FILES['uimage']['name'];
-    $temp_name1 = $_FILES['uimage']['tmp_name'];
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha");
+    $resData = json_decode($response);
 
-    $query = "SELECT * FROM user WHERE uemail='$email'";
-    $res = mysqli_query($con, $query);
-    $num = mysqli_num_rows($res);
-
-    if ($num == 1) {
-        $error = "<p class='alert alert-warning'>Email Id already Exist</p>";
+    if (!$resData || !$resData->success) {
+        $error = "<p class='alert alert-warning'>فشل التحقق من reCAPTCHA. حاول مرة أخرى.</p>";
     } else {
-        if (!empty($name) && !empty($email) && !empty($phone) && !empty($pass) && !empty($uimage)) {
-            $sql = "INSERT INTO user (uname,uemail,uphone,upass,utype,uimage) VALUES ('$name','$email','$phone','$pass','$utype','$uimage')";
-            $result = mysqli_query($con, $sql);
-            move_uploaded_file($temp_name1, "admin/user/$uimage");
-            if ($result) {
-                $msg = "<p class='alert alert-success'>Register Successfully</p>";
-            } else {
-                $error = "<p class='alert alert-warning'>Register Not Successfully</p>";
-            }
+        // استلام البيانات
+        $name   = trim($_POST['name']);
+        $email  = trim($_POST['email']);
+        $phone  = trim($_POST['phone']);
+        $pass   = trim($_POST['pass']);
+        $utype  = $_POST['utype'] ?? 'user';
+
+        $uimage = $_FILES['uimage']['name'];
+        $temp_name1 = $_FILES['uimage']['tmp_name'];
+
+        // التحقق من البريد
+        $query = "SELECT * FROM user WHERE uemail='$email'";
+        $res = mysqli_query($con, $query);
+        $num = mysqli_num_rows($res);
+
+        if ($num == 1) {
+            $error = "<p class='alert alert-warning'>البريد الإلكتروني موجود مسبقًا</p>";
         } else {
-            $error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+            // التأكد من أن جميع الحقول ممتلئة
+            if (!empty($name) && !empty($email) && !empty($phone) && !empty($pass) && !empty($uimage)) {
+                // تشفير كلمة المرور
+                $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
+
+                // إدخال البيانات
+                $sql = "INSERT INTO user (uname, uemail, uphone, upass, utype, uimage) 
+                        VALUES ('$name', '$email', '$phone', '$hashed_pass', '$utype', '$uimage')";
+                $result = mysqli_query($con, $sql);
+
+                // رفع الصورة
+                move_uploaded_file($temp_name1, "admin/user/$uimage");
+
+                if ($result) {
+                    // تحويل إلى الصفحة الرئيسية
+                    header("Location: login.php");
+                    exit;
+                } else {
+                    $error = "<p class='alert alert-warning'>فشل في عملية التسجيل</p>";
+                }
+            } else {
+                $error = "<p class='alert alert-warning'>يرجى ملء جميع الحقول</p>";
+            }
         }
     }
 }
-
 ?>
 
+<?php include("include/header.php");?>
 		<style>
                         /* ضبط كامل الصفحة */
                         .page-wrappers.login-body {
@@ -225,10 +241,11 @@ if (!$resData || !$resData->success) {
                         }
 
         </style>
+        	
 <div id="page-wrapper">
     <div class="row"> 
         <!--	Header start  -->
-		<?php include("include/header.php");?>
+	
         <!--	Header end  -->
    
 		 
@@ -263,7 +280,7 @@ if (!$resData || !$resData->success) {
                                     <input type="radio" class="form-check-input" name="utype" value="user" checked>مستخدم
                                 </label>
                             </div>
-                            <div class="form-check-inline">
+                            <!-- <div class="form-check-inline">
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="utype" value="agent">وكيل
                                 </label>
@@ -272,7 +289,7 @@ if (!$resData || !$resData->success) {
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="utype" value="builder">باني
                                 </label>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label class="col-form-label"><b>صورة المستخدم</b></label>

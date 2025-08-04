@@ -1,60 +1,63 @@
-    <?php include("include/header.php");?>
-<?php 
+  <?php
+    ini_set('session.cache_limiter', 'public');
+    session_cache_limiter(false);
+    session_start();
+    include("config.php");
+    ?>
+  <?php include("include/header.php"); ?>
+  <div class="container-fluid bg-light py-6 ps-5 pe-0">
+      <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+          <h1 class="display-5 text-uppercase mb-4">نقدم <span class="text-primary">أفضل</span> خدمات البناء</h1>
+      </div>
+      <?php
 
-include("config.php");
-								
-?>  
- <div class="container-fluid bg-light py-6 ps-5 pe-0">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 text-uppercase mb-4">نقدم <span class="text-primary">أفضل</span> خدمات البناء</h1>
-        </div>
-        <?php
+        // استعلام لجلب كل الخدمات
+        $sql = "SELECT * FROM services";
+        $result = $con->query($sql);
+        ?>
 
-                // استعلام لجلب كل الخدمات
-                $sql = "SELECT * FROM services";
-                $result = $con->query($sql);
-                ?>
+      <div class="row">
+          <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+            ?>
+                  <div class="col-lg-4 col-md-6 mb-4">
+                      <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center p-3">
+                          <!-- <img class="img-fluid mb-3" src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>"> -->
+                          <img class="img-fluid mb-3" src="admin/uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
 
-                <div class="row">
-                <?php
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        ?>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center p-3">
-                                <img class="img-fluid mb-3" src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
-                                <div class="service-icon bg-white mb-3">
-                                    <i class="fa fa-3x <?php echo htmlspecialchars($row['icon_class']); ?> text-primary"></i>
-                                </div>
-                                <div class="px-4 pb-4">
-                                    <h4 class="text-uppercase mb-3">
-                                        <a href="<?php echo htmlspecialchars($row['details_url']); ?>" style="text-decoration:none; color:inherit;">
-                                            <?php echo htmlspecialchars($row['name']); ?>
-                                        </a>
-                                    </h4>
-                                    <p><?php echo htmlspecialchars($row['description']); ?></p>
-                                    <div>
-                                        <a class="btn" href="<?php echo htmlspecialchars($row['details_url']); ?>">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
-                                        <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
-                                            <i class="fas fa-phone"> اطلب الان</i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    echo "<p>لا توجد خدمات حالياً.</p>";
+                          <div class="service-icon bg-white mb-3">
+                              <i class="fa fa-3x <?php echo htmlspecialchars($row['icon_class']); ?> text-primary"></i>
+                          </div>
+                          <div class="px-4 pb-4">
+                              <h4 class="text-uppercase mb-3">
+                                  <a href="<?php echo htmlspecialchars($row['details_url']); ?>" style="text-decoration:none; color:inherit;">
+                                      <?php echo htmlspecialchars($row['name']); ?>
+                                  </a>
+                              </h4>
+                              <p><?php echo htmlspecialchars($row['description']); ?></p>
+                              <div>
+                                  <a class="btn" href="<?php echo htmlspecialchars($row['details_url']); ?>">اقرأ المزيد <i class="bi bi-arrow-right"></i></a>
+                                  <a href="tel:+967773748697" class="btn bg-primary ms-2" title="اتصال">
+                                      <i class="fas fa-phone"> اطلب الان</i>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          <?php
                 }
-                $con->close();
-                ?>
-                </div>
+            } else {
+                echo "<p>لا توجد خدمات حالياً.</p>";
+            }
+            $con->close();
+            ?>
+      </div>
 
 
-</div>
-<!-- بداية قسم الخدمات -->
-    <!-- <div class="container-fluid bg-light py-6 ps-5 pe-0">
+  </div>
+  <!-- بداية قسم الخدمات -->
+  <!-- <div class="container-fluid bg-light py-6 ps-5 pe-0">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h1 class="display-5 text-uppercase mb-4">نقدم <span class="text-primary">أفضل</span> خدمات البناء</h1>
         </div>
@@ -295,7 +298,7 @@ include("config.php");
     </div>
     </div>
     </div> -->
-    <!-- نهاية قسم الخدمات -->
+  <!-- نهاية قسم الخدمات -->
 
 
-<?php include("include/footer.php");?>
+  <?php include("include/footer.php"); ?>

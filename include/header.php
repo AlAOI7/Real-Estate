@@ -1,6 +1,5 @@
 <?php 
 
-
 include("config.php");								
 ?>
 
@@ -36,7 +35,9 @@ include("config.php");
     <link href="css/style.css" rel="stylesheet">
            <!-- Font Awesome لتحميل الأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
 
             .fixed-icons {
@@ -162,8 +163,10 @@ include("config.php");
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
+    
     <!-- نهاية الشريط العلوي -->
 <!-- php session_start(); -->
 
@@ -171,7 +174,9 @@ include("config.php");
 <div class="container-fluid sticky-top bg-dark bg-light-radial shadow-sm ps-5 pe-0 pe-lg-0">
     <nav class="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
         <a href="index.php" class="navbar-brand">
-            <h5 class=" text-white"><i class="bi bi-building text-primary me-2"></i> المقاولات والبناء الحديث</h5>
+            <h5 class=" text-white">
+                <i class="bi bi-building text-primary me-2"></i>
+             المقاولات والبناء الحديث</h5>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -193,13 +198,13 @@ include("config.php");
                 </div>
                 <a href="contact.php" class="nav-item nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'contact.php' ? 'active' : ''?>">اتصل بنا</a>
 
-                 <?php if (isset($_SESSION['uemail'])) { ?>
+                         <?php if (isset($_SESSION['uemail'])) { ?>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">حسابي</a>
+                                    <a class="nav-link dropdown-toggle" href="#"  data-bs-toggle="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">حسابي</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"> <a class="dropdown-item" href="profile.php">الملف الشخصي</a> </li>
-                                        <li class="nav-item"> <a class="dropdown-item" href="request.php">طلب عقار</a> </li>
-                                        <li class="nav-item"> <a class="dropdown-item" href="feature.php">عقارك</a> </li>
+                                        <li class="nav-item"> <a class="dropdown-item" href="my_orders.php">طلباتي  </a> </li>
+                                        <!-- <li class="nav-item"> <a class="nav-link" href="feature.php">عقارك</a> </li> -->
                                         <li class="nav-item"> <a class="dropdown-item" href="logout.php">تسجيل الخروج</a> </li>
                                     </ul>
                                 </li>

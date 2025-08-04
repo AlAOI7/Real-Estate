@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $comment    = trim($_POST['comment']);
 
     if ($name && $email && $comment) {
-        $stmt = $conn->prepare("INSERT INTO comments (article_id, name, email, website, comment) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $con->prepare("INSERT INTO comments (article_id, name, email, website, comment) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("issss", $article_id, $name, $email, $website, $comment);
         $stmt->execute();
         header("Location: article.php?id=$article_id&msg=success");

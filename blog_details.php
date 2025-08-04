@@ -1,10 +1,11 @@
-    <?php include("include/header.php");?>
+  
 <?php 
-
-include("config.php");
-								
-?>  
-
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+session_start();
+include("config.php");								
+?> 
+ <?php include("include/header.php");?>
     <!-- Page Header Start -->
     <div class="container-fluid page-header">
         <h1 class="display-3 text-uppercase text-white mb-3">تفاصيل المدونه </h1>
@@ -34,7 +35,7 @@ if (!$article) {
         <div class="col-lg-8">
             <!-- بداية تفاصيل المدونة -->
             <div class="mb-5">
-                <img class="img-fluid w-100 rounded mb-5" src="<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
+                <img class="img-fluid w-100 rounded mb-5" src="admin/uploads/<?= htmlspecialchars($row['image']) ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
                 <h1 class="text-uppercase mb-4"><?php echo htmlspecialchars($article['title']); ?></h1>
                 
                 <?php 
@@ -70,27 +71,7 @@ if (!$article) {
 
 
 <div class="bg-light p-5">
-    <h3 class="text-uppercase mb-4">اترك تعليقاً</h3>
-    <form action="add_comment.php" method="POST">
-        <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($id); ?>">
-        <div class="row g-3">
-            <div class="col-12 col-sm-6">
-                <input type="text" name="name" class="form-control bg-white border-0" placeholder="اسمك" style="height: 55px;" required>
-            </div>
-            <div class="col-12 col-sm-6">
-                <input type="email" name="email" class="form-control bg-white border-0" placeholder="بريدك الإلكتروني" style="height: 55px;" required>
-            </div>
-            <div class="col-12">
-                <input type="url" name="website" class="form-control bg-white border-0" placeholder="الموقع الإلكتروني" style="height: 55px;">
-            </div>
-            <div class="col-12">
-                <textarea name="comment" class="form-control bg-white border-0" rows="5" placeholder="التعليق" required></textarea>
-            </div>
-            <div class="col-12">
-                <button class="btn bg-primary w-100 py-3" type="submit">اترك تعليقك</button>
-            </div>
-        </div>
-    </form>
+  
 </div>
 
             <!-- نهاية نموذج التعليق -->
@@ -127,9 +108,33 @@ if (!$article) {
                 </div>
             </div>
             <!-- نهاية الأقسام -->
-            
+             <div class="mb-5">
+                <h3 class="text-uppercase mb-4"> التعليقات </h3>
+                <div class="bg-light p-4">
+             <form action="add_comment.php" method="POST">
+        <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($id); ?>">
+        <div class="row g-3">
+            <div class="col-12 col-sm-6">
+                <input type="text" name="name" class="form-control bg-white border-0" placeholder="اسمك" style="height: 55px;" required>
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="email" name="email" class="form-control bg-white border-0" placeholder="بريدك الإلكتروني" style="height: 55px;" required>
+            </div>
+            <div class="col-12">
+                <input type="url" name="website" class="form-control bg-white border-0" placeholder="الموقع الإلكتروني" style="height: 55px;">
+            </div>
+            <div class="col-12">
+                <textarea name="comment" class="form-control bg-white border-0" rows="5" placeholder="التعليق" required></textarea>
+            </div>
+            <div class="col-12">
+                <button class="btn bg-primary w-100 py-3" type="submit">اترك تعليقك</button>
+            </div>
+        </div>
+    </form>
+
+                </div></div>
             <!-- بداية المنشورات الحديثة -->
-            <div class="mb-5">
+            <!-- <div class="mb-5">
                 <h3 class="text-uppercase mb-4">المنشورات الحديثة</h3>
                 <div class="bg-light p-4">
                     <?php
@@ -139,16 +144,23 @@ if (!$article) {
                     
                     if (mysqli_num_rows($recent_result) > 0) {
                         while ($recent = mysqli_fetch_assoc($recent_result)) {
+                            // echo '
+                            // <div class="d-flex mb-3">
+                            //     <img class="img-fluid" src="' . htmlspecialchars($recent['image']) . '" style="width: 100px; height: 100px; object-fit: cover;" alt="منشور حديث">
+                            //     <a href="article.php?id=' . $recent['id'] . '" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">' . htmlspecialchars($recent['title']) . '</a>
+                            // </div>';
                             echo '
-                            <div class="d-flex mb-3">
-                                <img class="img-fluid" src="' . htmlspecialchars($recent['image']) . '" style="width: 100px; height: 100px; object-fit: cover;" alt="منشور حديث">
-                                <a href="article.php?id=' . $recent['id'] . '" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">' . htmlspecialchars($recent['title']) . '</a>
-                            </div>';
+                                <div class="d-flex mb-3 align-items-center">
+                                    <img class="img-thumbnail me-3" src="admin/uploads/' . htmlspecialchars($recent['image']) . '" style="width: 100px; height: 100px; object-fit: cover;" alt="منشور حديث">
+                                    <a href="article.php?id=' . $recent['id'] . '" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0" style="flex: 1;">' . htmlspecialchars($recent['title']) . '</a>
+                                </div>';
+
                         }
                     }
                     ?>
                 </div>
-            </div>
+            </div> -->
+            
             <!-- نهاية المنشورات الحديثة -->
             
             <!-- بداية الصورة -->

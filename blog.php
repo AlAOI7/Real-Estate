@@ -1,11 +1,13 @@
 
+    <?php 
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+session_start();
+include("config.php");								
+?>
     <?php include("include/header.php");?>
 
-<?php 
 
-include("config.php");
-								
-?>  
     <!-- Page Header Start -->
     <div class="container-fluid page-header">
         <h1 class="display-3 text-uppercase text-white mb-3">المدونه</h1>
@@ -28,7 +30,7 @@ $result = mysqli_query($con, $query);
         <?php while($article = mysqli_fetch_assoc($result)): ?>
         <div class="col-lg-4 col-md-6">
             <div class="bg-light">
-                <img class="img-fluid" src="<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
+                <img class="img-fluid" src="admin/uploads/<?= htmlspecialchars($article['image']) ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
                 <div class="p-4">
                     <h4 class="text-uppercase mb-3"><?php echo htmlspecialchars($article['title']); ?></h4>
                     <p><?php echo htmlspecialchars(mb_strimwidth($article['short_details'], 0, 80, '...')); ?></p>

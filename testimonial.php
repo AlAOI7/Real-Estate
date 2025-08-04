@@ -1,26 +1,37 @@
-    <?php include("include/header.php");?>
+    <?php
+    ini_set('session.cache_limiter', 'public');
+    session_cache_limiter(false);
+    session_start();
+    include("config.php");
+    ?>
+    <?php include("include/header.php"); ?>
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header">
         <h1 class="display-3 text-uppercase text-white mb-3">شهادة</h1>
-    
+
     </div>
     <!-- Page Header Start -->
-  <style>
+    <style>
         .rating {
-            color: #FFD700; /* لون النجوم */
+            color: #FFD700;
+            /* لون النجوم */
         }
+
         .testimonial {
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         @media (max-width: 768px) {
             .testimonial {
                 padding: 20px;
             }
+
             .display-5 {
-                font-size: 1.5rem; /* تقليل حجم الخط في الشاشات الصغيرة */
+                font-size: 1.5rem;
+                /* تقليل حجم الخط في الشاشات الصغيرة */
             }
         }
     </style>
@@ -85,12 +96,13 @@
     </div>
 
 
-     <style>
+    <style>
         .contact-buttons {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
+
         .btn-custom {
             margin: 0 10px;
             padding: 10px 15px;
@@ -99,14 +111,20 @@
             text-align: center;
             transition: background-color 0.3s;
         }
+
         .btn-whatsapp {
-            background-color: #25D366; /* لون واتساب */
+            background-color: #25D366;
+            /* لون واتساب */
         }
+
         .btn-call {
-            background-color: #002fff; /* لون الاتصال */
+            background-color: #002fff;
+            /* لون الاتصال */
         }
+
         .btn-custom:hover {
-            opacity: 0.9; /* تأثير عند التمرير */
+            opacity: 0.9;
+            /* تأثير عند التمرير */
         }
     </style>
 
@@ -123,32 +141,38 @@
 
     <br>
 
-       <style>
+    <style>
         .rating {
-            color: #FFD700; /* لون النجوم */
+            color: #FFD700;
+            /* لون النجوم */
         }
+
         .progress {
             height: 20px;
         }
+
         .testimonial {
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         @media (max-width: 768px) {
             .testimonial {
                 padding: 20px;
             }
+
             .display-5 {
-                font-size: 1.5rem; /* تقليل حجم الخط في الشاشات الصغيرة */
+                font-size: 1.5rem;
+                /* تقليل حجم الخط في الشاشات الصغيرة */
             }
         }
     </style>
-  <!-- بداية قسم الشهادات -->
+    <!-- بداية قسم الشهادات -->
 
-    
 
-   <div class="container-fluid bg-light py-6 px-4">
+
+    <div class="container-fluid bg-light py-6 px-4">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h1 class="display-5 text-uppercase mb-4">تقييماتنا</h1>
         </div>
@@ -189,5 +213,5 @@
             </div>
         </div>
     </div>
-<!-- نهاية قسم الشهادات -->
-<?php include("include/footer.php");?>
+    <!-- نهاية قسم الشهادات -->
+    <?php include("include/footer.php"); ?>

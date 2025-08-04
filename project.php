@@ -1,8 +1,9 @@
-    <?php 
-
-include("config.php");
-								
-?>  
+<?php 
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+session_start();
+include("config.php");								
+?>
 
     <?php include("include/header.php");?>
 
@@ -167,7 +168,9 @@ include("config.php");
                                 <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4 <?php echo ($filter == $cat['class_name'] || ($filter == '*' && $cat['class_name']=='*')) ? 'active' : '' ?>"
                                     data-filter="<?php echo $cat['class_name']; ?>">
                                     <a href="?filter=<?php echo $cat['class_name']; ?>" style="text-decoration:none; color:inherit;">
-                                        <img src="<?php echo htmlspecialchars($cat['image']); ?>" style="width: 150px; height: 100px;">
+                                        <!-- <img src="<?php echo htmlspecialchars($cat['image']); ?>" style="width: 150px; height: 100px;"> -->
+                                       <img src="admin/uploads/<?php echo htmlspecialchars($cat['image']); ?>" style="width: 150px; height: 100px; object-fit: cover;" alt="صورة القسم">
+
                                         <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
                                             <h6 class="text-white text-uppercase m-0"><?php echo htmlspecialchars($cat['name']); ?></h6>
                                         </div>

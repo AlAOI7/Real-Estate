@@ -14,11 +14,12 @@ if(!isset($_SESSION['auser']))
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>LM HOMES | About</title>
+        <title>المقاولات والبناء الحديث</title>
 		
 		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-		
+        <link rel="shortcut icon" type="image/favicon.ico" href="img/favicon.ico">
+
+
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		
@@ -27,7 +28,8 @@ if(!isset($_SESSION['auser']))
 		
 		<!-- Feathericon CSS -->
         <link rel="stylesheet" href="assets/css/feathericon.min.css">
-		
+		 <link href="img/favicon.ico" rel="icon">
+
 		<!-- Select2 CSS -->
 		<link rel="stylesheet" href="assets/css/select2.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -129,15 +131,28 @@ if(!isset($_SESSION['auser']))
                     }
                 }
 
-            .page-wrapper {
-                margin-right: 250px; /* عرض القائمة */
-                margin-left: 0;
-            }
+                                /* القيم الأساسية (تظهر في الشاشات الكبيرة فقط) */
+                    .page-wrapper {
+                        margin-right: 250px;
+                        margin-left: 0;
+                    }
 
-            .sidebar .submenu ul {
-                padding-right: 15px;
-                padding-left: 0;
-            }
+                    .sidebar .submenu ul {
+                        padding-right: 15px;
+                        padding-left: 0;
+                    }
+
+                    /* عند الشاشات الصغيرة (أقل من 768px)، تلغى هذه القيم */
+                    @media (max-width: 767.98px) {
+                        .page-wrapper {
+                            margin-right: 0;
+                        }
+
+                        .sidebar .submenu ul {
+                            padding-right: 0;
+                        }
+                    }
+
 
             .user-menu {
                 margin-left: auto;
@@ -209,6 +224,9 @@ if(!isset($_SESSION['auser']))
             img {
                 border-radius: 5px;
             }
+            a {
+                    text-decoration: none;
+                }
 </style>
     </head>
     <body class="p-4">
@@ -258,14 +276,16 @@ if(!isset($_SESSION['auser']))
 </style>
   	<!-- تقديم العقار -->
 <div class="header">
-    
+      <a href="index.php" class="navbar-brand">
+            <h5 class=" text-white"> المقاولات والبناء الحديث</h5>
+        </a>
     <!-- الشعار -->
     <div class="header-left">
         <a href="dashboard.php" class="logo">
-            <img src="assets/img/logo.png" alt="الشعار">
+            <!-- <img src="assets/img/logo.png" alt="الشعار"> -->
         </a>
         <a href="dashboard.php" class="logo logo-small">
-            <img src="assets/img/logo-small.png" alt="الشعار" width="30" height="30">
+            <!-- <img src="assets/img/logo-small.png" alt="الشعار" width="30" height="30"> -->
         </a>
     </div>
     <!-- /الشعار -->
@@ -287,7 +307,7 @@ if(!isset($_SESSION['auser']))
         <h4 style="color:white;margin-top:13px;text-transform:capitalize;"><?php echo $_SESSION['auser']; ?></h4>
         <li class="nav-item dropdown app-dropdown">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.png" width="31" alt="رايان تايلور"></span>
+                <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.png" width="31" alt="  المقاولات والبناء الحديث"></span>
             </a>
             
             <div class="dropdown-menu">
@@ -318,138 +338,125 @@ if(!isset($_SESSION['auser']))
 <div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
-            <ul>
-                <li class="menu-title"> 
-                    <span>الرئيسية</span>
-                </li>
-                <li> 
-                    <a href="dashboard.php"><i class="fe fe-home"></i> <span>لوحة التحكم</span></a>
-                </li>
-                  
-                
-                <li class="menu-title"> 
-                    <span>المصادقة</span>
-                </li>
-            
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> المصادقة </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="index.php"> تسجيل الدخول </a></li>
-                        <li><a href="register.php"> تسجيل </a></li>
-                    </ul>
-                </li>
-                <li class="menu-title"> 
-                    <span>المستخدمون</span>
-                </li>
-            
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> المستخدمون </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="adminlist.php"> المسؤولون </a></li>
-                        <li><a href="userlist.php"> المستخدمون </a></li>
-                        <li><a href="useragent.php"> الوكلاء </a></li>
-                        <li><a href="userbuilder.php"> البناؤون </a></li>
-                    </ul>
-                </li>
-            
-                <li class="menu-title"> 
-                    <span>العقار</span>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> العقار </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="propertyadd.php"> إضافة عقار</a></li>
-                        <li><a href="propertyview.php"> عرض العقار </a></li>
-                    </ul>
-                </li>
-                
-                
-               <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> المدونه</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="blog_create.php"> اضافه </a></li>
-                        <li><a href="blog_list.php"> عرض </a></li>
-                    </ul>
-                </li>
-                 <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> الفئات</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="category_add.php"> اضافه </a></li>
-                        <li><a href="categories.php"> عرض </a></li>
-                    </ul>
-                </li>
+           <ul>
+    <li class="menu-title"> 
+        <span>المقاولات والبناء الحديث</span>
+    </li>
+    <li> 
+        <a href="dashboard.php"><i class="fe fe-home"></i> &nbsp;&nbsp;&nbsp;<span>لوحة التحكم</span></a>
+    </li>
 
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> التعليقات</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                    
-                        <li><a href="admin_comments.php"> عرض </a></li>
-                    </ul>
-                </li>
-                 <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> الخدمات</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="service_create.php"> اضافه </a></li>
-                        <li><a href="services.php"> عرض </a></li>
-                    </ul>
-                </li>
-                 <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> تقيمات</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="reviewscreate.php"> اضافه </a></li>
-                        <li><a href="reviewsindex.php"> عرض </a></li>
-                    </ul>
-                </li>
-                 <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> الشراح</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="createsliders.php"> اضافه </a></li>
-                        <li><a href="indexsliders.php"> عرض </a></li>
-                    </ul>
-                </li>
-                 <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> المشاريع</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="project_add.php"> اضافه </a></li>
-                        <li><a href="projects.php"> عرض </a></li>
-                    </ul>
-                </li>
+    <li class="menu-title"> 
+        <span>المستخدمون</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-users"></i>&nbsp;&nbsp;&nbsp;<span> المستخدمون </span></a>
+        <ul style="display: none;">
+            <li><a href="adminlist.php"> المسؤولون </a></li>
+            <li><a href="userlist.php"> المستخدمون </a></li>
+            <li><a href="useragent.php"> الوكلاء </a></li>
+            <li><a href="userbuilder.php"> البناؤون </a></li>
+        </ul>
+    </li>
 
+    <li class="menu-title"> 
+        <span>المدونه</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-book"></i>&nbsp;&nbsp;&nbsp;<span> المدونة</span></a>
+        <ul style="display: none;">
+            <li><a href="blog_create.php"> إضافة </a></li>
+            <li><a href="blog_list.php"> عرض </a></li>
+        </ul>
+    </li>
 
+    <li class="menu-title"> 
+        <span>الفئات</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-layers"></i>&nbsp;&nbsp;&nbsp;<span> الفئات</span></a>
+        <ul style="display: none;">
+            <li><a href="category_add.php"> إضافة </a></li>
+            <li><a href="categories.php"> عرض </a></li>
+        </ul>
+    </li>
 
+    <li class="menu-title"> 
+        <span>التعليقات</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-message"></i>&nbsp;&nbsp;&nbsp;<span> التعليقات</span></a>
+        <ul style="display: none;">
+            <li><a href="admin_comments.php"> عرض </a></li>
+        </ul>
+    </li>
 
+    <li class="menu-title"> 
+        <span>الخدمات</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-briefcase"></i>&nbsp;&nbsp;&nbsp;<span> الخدمات</span></a>
+        <ul style="display: none;">
+            <li><a href="service_create.php"> إضافة </a></li>
+            <li><a href="services.php"> عرض </a></li>
+        </ul>
+    </li>
 
+    <li class="menu-title"> 
+        <span>تقييمات</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-star"></i>&nbsp;&nbsp;&nbsp;<span> تقييمات</span></a>
+        <ul style="display: none;">
+            <li><a href="reviewscreate.php"> إضافة </a></li>
+            <li><a href="reviewsindex.php"> عرض </a></li>
+        </ul>
+    </li>
 
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span>الولاية والمدينة</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="stateadd.php"> الولاية </a></li>
-                        <li><a href="cityadd.php"> المدينة </a></li>
-                    </ul>
-                </li>
-                
-                <li class="menu-title"> 
-                    <span>الاستفسارات</span>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> الاستفسارات </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="contactview.php"> الاتصالات </a></li>
-                        <li><a href="feedbackview.php"> الملاحظات </a></li>
-                    </ul>
-                </li>
-                <li class="menu-title"> 
-                    <span>حول</span>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> حول </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="aboutadd.php"> حول </a></li>
-                        <li><a href="aboutview.php"> عرض حول </a></li>
-                    </ul>
-                </li>
-                
-            </ul>
+    <li class="menu-title"> 
+        <span>الشرائح</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-image"></i>&nbsp;&nbsp;&nbsp;<span> الشرائح</span></a>
+        <ul style="display: none;">
+            <li><a href="createsliders.php"> إضافة </a></li>
+            <li><a href="indexsliders.php"> عرض </a></li>
+        </ul>
+    </li>
+
+    <li class="menu-title"> 
+        <span>المشاريع</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-briefcase"></i>&nbsp;&nbsp;&nbsp;<span> المشاريع</span></a>
+        <ul style="display: none;">
+            <li><a href="project_add.php"> إضافة </a></li>
+            <li><a href="projects.php"> عرض </a></li>
+        </ul>
+    </li>
+
+    <li class="menu-title"> 
+        <span>الاستفسارات</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-help-circle"></i>&nbsp;&nbsp;&nbsp;<span> الاستفسارات </span></a>
+        <ul style="display: none;">
+            <li><a href="contactview.php"> الاتصالات </a></li>
+        </ul>
+    </li>
+
+    <li class="menu-title"> 
+        <span>حول</span>
+    </li>
+    <li class="submenu">
+        <a href="#"><i class="fe fe-info"></i>&nbsp;&nbsp;&nbsp;<span> حول </span></a>
+        <ul style="display: none;">
+            <li><a href="aboutadd.php"> حول </a></li>
+            <li><a href="aboutview.php"> عرض حول </a></li>
+        </ul>
+    </li>
+</ul>
+
         </div>
     </div>
 </div>

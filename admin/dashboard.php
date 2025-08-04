@@ -150,11 +150,14 @@ if ($result) {
             <a href="blog_list.php" class="btn btn-info m-2 flex-fill">المدونة</a>
             
             <a href="categories.php" class="btn btn-warning m-2 flex-fill">التصنيفات</a>
-            
+
+              
             <a href="indexsliders.php" class="btn btn-secondary m-2 flex-fill">الشرائح</a>
             
-            <a href="reviewsindex.php" class="btn btn-danger m-2 flex-fill">المراجعات</a>
-            
+            <a href="orders.php" class="btn btn-danger m-2 flex-fill">الطلبات</a>
+
+        <a href="services.php" class="btn btn-info m-2 flex-fill">الخدمات</a>
+
             <a href="contactview.php" class="btn btn-dark m-2 flex-fill">رسائل التواصل</a>
 
         </div>

@@ -1,5 +1,7 @@
 <?php 
-
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+session_start();
 include("config.php");								
 ?>
 	<?php include("include/header.php");?>
@@ -9,24 +11,7 @@ include("config.php");
 	
         <!--	Header end  -->
         
-        <!--	Banner   --->
-        <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>About US</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">About Us</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+   
          <!--	Banner   --->
 		 
         <!--	About Our Company -->
@@ -65,7 +50,7 @@ include("config.php");
         </div>
             <div class="col-lg-5 pb-5" style="min-height: 400px;">
                 <div class="position-relative bg-dark-radial h-100 ms-5">
-                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="admin/upload/<?php echo $row['3'];?>" style="object-fit: cover;" alt="صورة عن الشركة">
+                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="admin/uploads/<?php echo $row['3'];?>" style="object-fit: cover;" alt="صورة عن الشركة">
                 </div>
             </div>
 
