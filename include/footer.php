@@ -1,8 +1,11 @@
  <!-- بداية التذييل -->
+
 <?php
+include("config.php");
 $query = mysqli_query($con, "SELECT * FROM settings LIMIT 1");
 $settings = mysqli_fetch_assoc($query);
 ?>
+
 <div class="footer container-fluid position-relative  bg-dark text-center text-white-50 py-6 ps-5 pe-0">
 
     <div class="row g-5">
