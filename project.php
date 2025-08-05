@@ -35,7 +35,7 @@ include("config.php");
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="1.mp4" type="video/mp4">
+                    <source src="img/1.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
@@ -43,7 +43,7 @@ include("config.php");
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="2.mp4" type="video/mp4">
+                    <source src="img/2.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
@@ -51,7 +51,7 @@ include("config.php");
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="3.mp4" type="video/mp4">
+                    <source src="img/3.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
@@ -59,7 +59,7 @@ include("config.php");
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="4.mp4" type="video/mp4">
+                    <source src="img/4.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
@@ -67,7 +67,7 @@ include("config.php");
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="5.mp4" type="video/mp4">
+                    <source src="img/5.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
@@ -75,7 +75,7 @@ include("config.php");
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="6.mp4" type="video/mp4">
+                    <source src="img/6.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
@@ -83,7 +83,7 @@ include("config.php");
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="video-container">
                 <video controls>
-                    <source src="7.mp4" type="video/mp4">
+                    <source src="img/7.mp4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
             </div>
