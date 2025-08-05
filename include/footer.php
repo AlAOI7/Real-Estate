@@ -1,18 +1,18 @@
  <!-- بداية التذييل -->
-
+<?php
+$query = mysqli_query($con, "SELECT * FROM settings LIMIT 1");
+$settings = mysqli_fetch_assoc($query);
+?>
 <div class="footer container-fluid position-relative  bg-dark text-center text-white-50 py-6 ps-5 pe-0">
 
     <div class="row g-5">
         <div class="col-lg-12 pe-lg-6">
             <a href="index.html" class="navbar-brand">
                 <h1 class="m-0 display-4 text-uppercase text-white">
-                    <i class="bi bi-building text-primary me-2"></i> المقاولات والبناء الحديث</h1>
+                    <i class="bi bi-building text-primary me-2"></i> <?php echo $settings['site_title']; ?></h1>
             </a>
-                <p>
-                نقدم خدمات المقاولات وفق أحدث معايير البناء الحديثة باستخدام تقنيات مبتكرة لضمان الجودة والدقة.
-                نسعى لتشييد مشاريع متكاملة تجمع بين التصميم العصري والاستدامة لتلبية احتياجات عملائنا بأعلى مستوى من الكفاءة.
-                </p>            <p><i class="fa fa-map-marker-alt me-2"></i> الهدا السعودية</p>
-       
+<p><?php echo nl2br($settings['description']); ?></p>       
+<p><i class="fa fa-map-marker-alt me-2"></i> <?php echo $settings['address']; ?></p>       
         </div>
 
     </div>
@@ -29,8 +29,9 @@
     <div class="container-fluid bg-dark bg-light-radial text-center text-white border-top border-primary px-0 centered-container">
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <div class="py-4 ps-5 pe-0 text-center text-md-start">
-                <p class="mb-0">&copy; <a class="text-primary" href="#">المقاولات والبناء الحديث</a>. جميع الحقوق محفوظة.</p>
-            </div>
+<p class="mb-0">
+  <?php echo $settings['copyright']; ?>
+</p>            </div>
         </div>
     </div>
 

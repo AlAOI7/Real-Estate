@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 أغسطس 2025 الساعة 22:35
+-- Generation Time: 05 أغسطس 2025 الساعة 23:41
 -- إصدار الخادم: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -293,6 +293,30 @@ INSERT INTO `services` (`id`, `name`, `description`, `icon_class`, `image`, `det
 -- --------------------------------------------------------
 
 --
+-- بنية الجدول `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `site_title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `whatsapp` varchar(50) NOT NULL,
+  `copyright` text DEFAULT NULL,
+  `favicon` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- إرجاع أو استيراد بيانات الجدول `settings`
+--
+
+INSERT INTO `settings` (`id`, `site_title`, `description`, `address`, `phone`, `whatsapp`, `copyright`, `favicon`) VALUES
+(1, 'المقاولات والبناء الحديث', 'نقدم خدمات المقاولات وفق أحدث معايير البناء الحديثة باستخدام تقنيات مبتكرة لضمان الجودة والدقة.\r\n  نسعى لتشييد مشاريع متكاملة تجمع بين التصميم العصري والاستدامة لتلبية احتياجات عملائنا بأعلى مستوى من الكفاءة.', 'الهدا السعودية', '+967773748697', '+967773748697', '© المقاولات والبناء الحديث. جميع الحقوق محفوظة.', 'upload/Aicon.png');
+
+-- --------------------------------------------------------
+
+--
 -- بنية الجدول `sliders`
 --
 
@@ -337,7 +361,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`uid`, `uname`, `uemail`, `uphone`, `upass`, `utype`, `uimage`) VALUES
 (14, 'admin', 'admin@gmail.com', '9876543210', 'admin', 'user', '3.jpg'),
 (28, 'ala', 'ala@gmail.com', '33333333', 'alaoi', 'user', 'corinne.jpg'),
-(29, 'alaoi', 'alaoi@gmail.com', '0774252137', '$2y$10$TIC.5ZI9NrT8m8O6UmAVUeMf27tU49ESrHqJufZfDZk', 'user', 'rosie.jpg');
+(29, 'alaoi', 'alaoi@gmail.com', '0774252137', '$2y$10$Vg6iHnUO1YMhRHHQZJvO7eeN5B8mDCqFfPcgQt5Wv2i', 'user', 'rosie.jpg'),
+(31, 'user', 'user@gmail.com', '0774252137', 'user', 'user', 'تنزيل.jfif');
 
 --
 -- Indexes for dumped tables
@@ -417,6 +442,12 @@ ALTER TABLE `reviews`
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -508,6 +539,12 @@ ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
@@ -517,7 +554,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `uid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- قيود الجداول المُلقاة.

@@ -1,20 +1,25 @@
-<?php 
 
-include("config.php");								
+<?php
+include("config.php");
+$query = mysqli_query($con, "SELECT * FROM settings LIMIT 1");
+$settings = mysqli_fetch_assoc($query);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8">
-    <title>المقاولات والبناء الحديث</title>
+    <title><?php echo $settings['site_title']; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+  <!-- <link rel="shortcut icon" type="admin/upload/png" href="<?php echo $settings['favicon']; ?>"> -->
+<link rel="icon" href="../admin/upload/<?php echo $settings['favicon']; ?>" type="image/png">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -125,14 +130,15 @@ include("config.php");
 </head>
 <body>
   <!-- الأيقونات -->
- <div class="fixed-icons">
-    <a href="https://wa.me/+967773748697" target="_blank" title="واتساب">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="tel:+967773748697" class="phone" style="background-color:#002fff"  title="اتصال">
-      <i class="fas fa-phone"></i>
-    </a>
-  </div>
+<!-- أيقونات ثابتة -->
+<div class="fixed-icons">
+  <a href="https://wa.me/<?php echo $settings['whatsapp']; ?>" target="_blank" title="واتساب">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="tel:<?php echo $settings['phone']; ?>" class="phone" style="background-color:#002fff" title="اتصال">
+    <i class="fas fa-phone"></i>
+  </a>
+</div>
   <!-- بداية الشريط العلوي -->
     <div class="container-fluid ps-5 pe-0 d-none d-lg-block">
         <div class="row gx-5">
@@ -176,7 +182,7 @@ include("config.php");
         <a href="index.php" class="navbar-brand">
             <h5 class=" text-white">
                 <i class="bi bi-building text-primary me-2"></i>
-             المقاولات والبناء الحديث</h5>
+                 <?php echo $settings['site_title']; ?></h5>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -193,24 +199,23 @@ include("config.php");
                         <a href="team.php" class="dropdown-item">فريق العمل</a>
                         <a href="testimonial.php" class="dropdown-item">آراء العملاء</a>
                         <a href="blog.php" class="dropdown-item">المدونة</a>
-                        <a href="detail.php" class="dropdown-item">تفاصيل المدونة</a>
+                        <a href="admin/index.php" class="dropdown-item"> الاداره</a>
                     </div>
                 </div>
                 <a href="contact.php" class="nav-item nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'contact.php' ? 'active' : ''?>">اتصل بنا</a>
 
-                         <?php if (isset($_SESSION['uemail'])) { ?>
+                         <!-- <?php if (isset($_SESSION['uemail'])) { ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#"  data-bs-toggle="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">حسابي</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"> <a class="dropdown-item" href="profile.php">الملف الشخصي</a> </li>
                                         <li class="nav-item"> <a class="dropdown-item" href="my_orders.php">طلباتي  </a> </li>
-                                        <!-- <li class="nav-item"> <a class="nav-link" href="feature.php">عقارك</a> </li> -->
                                         <li class="nav-item"> <a class="dropdown-item" href="logout.php">تسجيل الخروج</a> </li>
                                     </ul>
                                 </li>
                                 <?php } else { ?>
                                 <li class="nav-item"> <a class="nav-link" href="login.php">تسجيل الدخول/التسجيل</a> </li>
-                                <?php } ?>
+                                <?php } ?> -->
 
             </div>
         </div>

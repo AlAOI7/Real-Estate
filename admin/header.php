@@ -10,15 +10,19 @@ if(!isset($_SESSION['auser']))
 ?>  
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
+<?php
+$query = mysqli_query($con, "SELECT * FROM settings LIMIT 1");
+$settings = mysqli_fetch_assoc($query);
+?>
 
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>المقاولات والبناء الحديث</title>
+        <title><?php echo $settings['site_title']; ?></title>
 		
-		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/favicon.ico" href="img/favicon.ico">
-
+		
+        <!-- <link rel="shortcut icon" type="upload/Aicon.png" href="upload/Aicon.png"> -->
+<link rel="shortcut icon" type="upload/png" href="<?php echo $settings['favicon']; ?>">
 
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -34,6 +38,7 @@ if(!isset($_SESSION['auser']))
 		<link rel="stylesheet" href="assets/css/select2.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.css">
 
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
@@ -277,7 +282,7 @@ if(!isset($_SESSION['auser']))
   	<!-- تقديم العقار -->
 <div class="header">
       <a href="index.php" class="navbar-brand">
-            <h5 class=" text-white"> المقاولات والبناء الحديث</h5>
+            <h5 class=" text-white"> <?php echo $settings['site_title']; ?></h5>
         </a>
     <!-- الشعار -->
     <div class="header-left">
@@ -340,7 +345,7 @@ if(!isset($_SESSION['auser']))
         <div id="sidebar-menu" class="sidebar-menu">
            <ul>
     <li class="menu-title"> 
-        <span>المقاولات والبناء الحديث</span>
+        <span> <?php echo $settings['site_title']; ?></span>
     </li>
     <li> 
         <a href="dashboard.php"><i class="fe fe-home"></i> &nbsp;&nbsp;&nbsp;<span>لوحة التحكم</span></a>
@@ -374,7 +379,7 @@ if(!isset($_SESSION['auser']))
         <span>الفئات</span>
     </li>
     <li class="submenu">
-        <a href="#"><i class="fe fe-layers"></i>&nbsp;&nbsp;&nbsp;<span> الفئات</span></a>
+        <a href="#"><i class="fe fe-layer"></i>&nbsp;&nbsp;&nbsp;<span> الفئات</span></a>
         <ul style="display: none;">
             <li><a href="category_add.php"> إضافة </a></li>
             <li><a href="categories.php"> عرض </a></li>
@@ -385,7 +390,7 @@ if(!isset($_SESSION['auser']))
         <span>التعليقات</span>
     </li>
     <li class="submenu">
-        <a href="#"><i class="fe fe-message"></i>&nbsp;&nbsp;&nbsp;<span> التعليقات</span></a>
+        <a href="#"><i class="fe fe-comments"></i>&nbsp;&nbsp;&nbsp;<span> التعليقات</span></a>
         <ul style="display: none;">
             <li><a href="admin_comments.php"> عرض </a></li>
         </ul>
@@ -395,13 +400,19 @@ if(!isset($_SESSION['auser']))
         <span>الخدمات</span>
     </li>
     <li class="submenu">
-        <a href="#"><i class="fe fe-briefcase"></i>&nbsp;&nbsp;&nbsp;<span> الخدمات</span></a>
+        <a href="#"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;&nbsp;<span> الخدمات</span></a>
         <ul style="display: none;">
             <li><a href="service_create.php"> إضافة </a></li>
             <li><a href="services.php"> عرض </a></li>
         </ul>
     </li>
-
+ <li class="menu-title"> 
+        <span>ألاعدادات</span>
+    </li>
+ <li >
+        <a href="edit_settings.php"><i class="fa  fa-cog"></i>&nbsp;&nbsp;&nbsp;<span> الاعدادات</span></a>
+  
+    </li>
     <li class="menu-title"> 
         <span>تقييمات</span>
     </li>
@@ -417,7 +428,7 @@ if(!isset($_SESSION['auser']))
         <span>الشرائح</span>
     </li>
     <li class="submenu">
-        <a href="#"><i class="fe fe-image"></i>&nbsp;&nbsp;&nbsp;<span> الشرائح</span></a>
+        <a href="#"><i class="fa fa-file-text"></i>&nbsp;&nbsp;&nbsp;<span> الشرائح</span></a>
         <ul style="display: none;">
             <li><a href="createsliders.php"> إضافة </a></li>
             <li><a href="indexsliders.php"> عرض </a></li>
@@ -428,7 +439,7 @@ if(!isset($_SESSION['auser']))
         <span>المشاريع</span>
     </li>
     <li class="submenu">
-        <a href="#"><i class="fe fe-briefcase"></i>&nbsp;&nbsp;&nbsp;<span> المشاريع</span></a>
+        <a href="#"><i class="fa fa-project-diagram"></i>&nbsp;&nbsp;&nbsp;<span> المشاريع</span></a>
         <ul style="display: none;">
             <li><a href="project_add.php"> إضافة </a></li>
             <li><a href="projects.php"> عرض </a></li>
@@ -439,7 +450,7 @@ if(!isset($_SESSION['auser']))
         <span>الاستفسارات</span>
     </li>
     <li class="submenu">
-        <a href="#"><i class="fe fe-help-circle"></i>&nbsp;&nbsp;&nbsp;<span> الاستفسارات </span></a>
+        <a href="#"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;&nbsp;<span> الاستفسارات </span></a>
         <ul style="display: none;">
             <li><a href="contactview.php"> الاتصالات </a></li>
         </ul>
