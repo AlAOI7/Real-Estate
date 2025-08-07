@@ -1,205 +1,152 @@
-  
-<?php 
-ini_set('session.cache_limiter','public');
-session_cache_limiter(false);
-session_start();
-include("config.php");								
-?> 
- <?php include("include/header.php");?>
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header">
-        <h1 class="display-3 text-uppercase text-white mb-3">تفاصيل المدونه </h1>
-  
-    </div>
-    <!-- Page Header Start -->
+  <?php
+    ini_set('session.cache_limiter', 'public');
+    session_cache_limiter(false);
+    session_start();
+    include("config.php");
+    ?>
+  <?php include("include/header.php"); ?>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header">
+      <h1 class="display-3 text-uppercase text-white mb-3">تفاصيل المدونه </h1>
 
-<?php
+  </div>
+  <!-- Page Header Start -->
+
+  <?php
 
 
-$id = intval($_GET['id'] ?? 0);
-if ($id <= 0) {
-    die("مقال غير صالح");
-}
+    $id = intval($_GET['id'] ?? 0);
+    if ($id <= 0) {
+        die("مقال غير صالح");
+    }
 
-$query = "SELECT * FROM blog_articles WHERE id = $id LIMIT 1";
-$result = mysqli_query($con, $query);
-$article = mysqli_fetch_assoc($result);
+    $query = "SELECT * FROM blog_articles WHERE id = $id LIMIT 1";
+    $result = mysqli_query($con, $query);
+    $article = mysqli_fetch_assoc($result);
 
-if (!$article) {
-    die("المقال غير موجود");
-}
-?>
+    if (!$article) {
+        die("المقال غير موجود");
+    }
+    ?>
 
-<div class="container-fluid py-6 ps-5 pe-0">
-    <div class="row g-5">
-        <div class="col-lg-8">
-            <!-- بداية تفاصيل المدونة -->
-            <div class="mb-5">
-                <img class="img-fluid w-100 rounded mb-5" src="admin/uploads/<?= htmlspecialchars($row['image']) ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
-                <h1 class="text-uppercase mb-4"><?php echo htmlspecialchars($article['title']); ?></h1>
-                
-                <?php 
-                // عرض الفقرات من النص مع تقسيمها عند وجود سطر جديد
-                $paragraphs = explode("\n", $article['full_details']);
-                foreach ($paragraphs as $paragraph) {
-                    if (!empty(trim($paragraph))) {
-                        echo '<p>' . htmlspecialchars($paragraph) . '</p>';
+  <div class="container-fluid py-6 ps-5 pe-0">
+      <div class="row g-5">
+          <div class="col-lg-8">
+              <!-- بداية تفاصيل المدونة -->
+              <div class="mb-5">
+                  <img class="img-fluid" src="admin/uploads/<?= htmlspecialchars($article['image']) ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
+                  <h1 class="text-uppercase mb-4"><?php echo htmlspecialchars($article['title']); ?></h1>
+
+                  <?php
+                    // عرض الفقرات من النص مع تقسيمها عند وجود سطر جديد
+                    $paragraphs = explode("\n", $article['full_details']);
+                    foreach ($paragraphs as $paragraph) {
+                        if (!empty(trim($paragraph))) {
+                            echo '<p>' . htmlspecialchars($paragraph) . '</p>';
+                        }
                     }
-                }
-                ?>
-                
-                <!-- يمكنك إضافة المميزات من قاعدة البيانات إذا كنت تريد -->
-                <div class="row gx-5 py-2">
-                    <div class="col-sm-6 mb-2">
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> التخطيط المثالي</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> عمالة محترفة</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> تنفيذ دقيق</p>
-                    </div>
-                    <div class="col-sm-6 mb-2">
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> مواد بناء عالية الجودة</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> الالتزام بالمواعيد</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> مراقبة جودة صارمة</p>
-                    </div>
-                </div>
-                
-                <a href="blog_list.php" class="btn bg-primary mt-3">العودة إلى قائمة المقالات</a>
-            </div>
-            <!-- نهاية تفاصيل المدونة -->
-            
-       
-            <!-- بداية نموذج التعليق -->
+                    ?>
+
+                  <!-- يمكنك إضافة المميزات من قاعدة البيانات إذا كنت تريد -->
+                  <div class="row gx-5 py-2">
+                      <div class="col-sm-6 mb-2">
+                          <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> التخطيط المثالي</p>
+                          <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> عمالة محترفة</p>
+                          <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> تنفيذ دقيق</p>
+                      </div>
+                      <div class="col-sm-6 mb-2">
+                          <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> مواد بناء عالية الجودة</p>
+                          <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> الالتزام بالمواعيد</p>
+                          <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i> مراقبة جودة صارمة</p>
+                      </div>
+                  </div>
+
+                  <a href="blog_list.php" class="btn bg-primary mt-3">العودة إلى قائمة المقالات</a>
+              </div>
+              <!-- نهاية تفاصيل المدونة -->
 
 
-<div class="bg-light p-5">
-  
-</div>
+              <!-- بداية نموذج التعليق -->
 
-            <!-- نهاية نموذج التعليق -->
-        </div>
+
+              <div class="bg-light p-5">
+
+              </div>
+
+              <!-- نهاية نموذج التعليق -->
+          </div>
+
+          <!-- بداية الشريط الجانبي -->
+          <div class="col-lg-4">
+              <!-- بداية نموذج البحث -->
+              <div class="mb-5">
+                  <form action="search.php" method="GET">
+                      <div class="input-group">
+                          <input type="text" name="q" class="form-control p-3" placeholder="كلمة مفتاحية">
+                          <button class="btn bg-primary px-3" type="submit"><i class="fa fa-search"></i></button>
+                      </div>
+                  </form>
+              </div>
+              <!-- نهاية نموذج البحث -->
+
+              <!-- بداية الأقسام -->
+              <div class="mb-5">
+                  <h3 class="text-uppercase mb-4">الأقسام</h3>
+                  <div class="d-flex flex-column justify-content-start bg-light p-4">
+                      <?php
+                        // استعلام لجلب الأقسام من قاعدة البيانات
+                        $categories_query = "SELECT * FROM categories ORDER BY name";
+                        $categories_result = mysqli_query($con, $categories_query);
+
+                        if (mysqli_num_rows($categories_result) > 0) {
+                            while ($category = mysqli_fetch_assoc($categories_result)) {
+                                echo '<a class="h6 text-uppercase mb-4" href="category.php?id=' . $category['id'] . '"><i class="fa fa-angle-right me-2"></i>' . htmlspecialchars($category['name']) . '</a>';
+                            }
+                        }
+                        ?>
+                  </div>
+              </div>
+              <!-- نهاية الأقسام -->
+              <div class="mb-5">
+                  <h3 class="text-uppercase mb-4"> التعليقات </h3>
+                  <div class="bg-light p-4">
+                      <form action="add_comment.php" method="POST">
+                          <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($id); ?>">
+                          <div class="row g-3">
+                              <div class="col-12 col-sm-6">
+                                  <input type="text" name="name" class="form-control bg-white border-0" placeholder="اسمك" style="height: 55px;" required>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                  <input type="email" name="email" class="form-control bg-white border-0" placeholder="بريدك الإلكتروني" style="height: 55px;" required>
+                              </div>
+                              <div class="col-12">
+                                  <input type="url" name="website" class="form-control bg-white border-0" placeholder="الموقع الإلكتروني" style="height: 55px;">
+                              </div>
+                              <div class="col-12">
+                                  <textarea name="comment" class="form-control bg-white border-0" rows="5" placeholder="التعليق" required></textarea>
+                              </div>
+                              <div class="col-12">
+                                  <button class="btn bg-primary w-100 py-3" type="submit">اترك تعليقك</button>
+                              </div>
+                          </div>
+                      </form>
+
+                  </div>
+              </div>
+              <!-- بداية المنشورات الحديثة -->
         
-        <!-- بداية الشريط الجانبي -->
-        <div class="col-lg-4">
-            <!-- بداية نموذج البحث -->
-            <div class="mb-5">
-                <form action="search.php" method="GET">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control p-3" placeholder="كلمة مفتاحية">
-                        <button class="btn bg-primary px-3" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </form>
-            </div>
-            <!-- نهاية نموذج البحث -->
-            
-            <!-- بداية الأقسام -->
-            <div class="mb-5">
-                <h3 class="text-uppercase mb-4">الأقسام</h3>
-                <div class="d-flex flex-column justify-content-start bg-light p-4">
-                    <?php
-                    // استعلام لجلب الأقسام من قاعدة البيانات
-                    $categories_query = "SELECT * FROM categories ORDER BY name";
-                    $categories_result = mysqli_query($con, $categories_query);
-                    
-                    if (mysqli_num_rows($categories_result) > 0) {
-                        while ($category = mysqli_fetch_assoc($categories_result)) {
-                            echo '<a class="h6 text-uppercase mb-4" href="category.php?id=' . $category['id'] . '"><i class="fa fa-angle-right me-2"></i>' . htmlspecialchars($category['name']) . '</a>';
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-            <!-- نهاية الأقسام -->
-             <div class="mb-5">
-                <h3 class="text-uppercase mb-4"> التعليقات </h3>
-                <div class="bg-light p-4">
-             <form action="add_comment.php" method="POST">
-        <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($id); ?>">
-        <div class="row g-3">
-            <div class="col-12 col-sm-6">
-                <input type="text" name="name" class="form-control bg-white border-0" placeholder="اسمك" style="height: 55px;" required>
-            </div>
-            <div class="col-12 col-sm-6">
-                <input type="email" name="email" class="form-control bg-white border-0" placeholder="بريدك الإلكتروني" style="height: 55px;" required>
-            </div>
-            <div class="col-12">
-                <input type="url" name="website" class="form-control bg-white border-0" placeholder="الموقع الإلكتروني" style="height: 55px;">
-            </div>
-            <div class="col-12">
-                <textarea name="comment" class="form-control bg-white border-0" rows="5" placeholder="التعليق" required></textarea>
-            </div>
-            <div class="col-12">
-                <button class="btn bg-primary w-100 py-3" type="submit">اترك تعليقك</button>
-            </div>
-        </div>
-    </form>
-
-                </div></div>
-            <!-- بداية المنشورات الحديثة -->
-            <!-- <div class="mb-5">
-                <h3 class="text-uppercase mb-4">المنشورات الحديثة</h3>
-                <div class="bg-light p-4">
-                    <?php
-                    // استعلام لجلب أحدث المقالات
-                    $recent_query = "SELECT id, title, image FROM blog_articles ORDER BY created_at DESC LIMIT 6";
-                    $recent_result = mysqli_query($con, $recent_query);
-                    
-                    if (mysqli_num_rows($recent_result) > 0) {
-                        while ($recent = mysqli_fetch_assoc($recent_result)) {
-                            // echo '
-                            // <div class="d-flex mb-3">
-                            //     <img class="img-fluid" src="' . htmlspecialchars($recent['image']) . '" style="width: 100px; height: 100px; object-fit: cover;" alt="منشور حديث">
-                            //     <a href="article.php?id=' . $recent['id'] . '" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">' . htmlspecialchars($recent['title']) . '</a>
-                            // </div>';
-                            echo '
-                                <div class="d-flex mb-3 align-items-center">
-                                    <img class="img-thumbnail me-3" src="admin/uploads/' . htmlspecialchars($recent['image']) . '" style="width: 100px; height: 100px; object-fit: cover;" alt="منشور حديث">
-                                    <a href="article.php?id=' . $recent['id'] . '" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0" style="flex: 1;">' . htmlspecialchars($recent['title']) . '</a>
-                                </div>';
-
-                        }
-                    }
-                    ?>
-                </div>
-            </div> -->
-            
-            <!-- نهاية المنشورات الحديثة -->
-            
-            <!-- بداية الصورة -->
-            <div class="mb-5">
-                <img src="img/blog-1.jpg" alt="صورة" class="img-fluid rounded">
-            </div>
-            <!-- نهاية الصورة -->
-            
-            <!-- بداية السمات -->
-            <div class="mb-5">
-                <h3 class="text-uppercase mb-4">سحابة السمات</h3>
-                <div class="d-flex flex-wrap m-n1">
-                    <?php
-                    // استعلام لجلب السمات الشائعة
-                    $tags_query = "SELECT tag, COUNT(*) as count FROM article_tags GROUP BY tag ORDER BY count DESC LIMIT 6";
-                    $tags_result = mysqli_query($con, $tags_query);
-                    
-                    if (mysqli_num_rows($tags_result) > 0) {
-                        while ($tag = mysqli_fetch_assoc($tags_result)) {
-                            echo '<a href="tag.php?tag=' . urlencode($tag['tag']) . '" class="btn btn-outline-dark m-1">' . htmlspecialchars($tag['tag']) . '</a>';
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-            <!-- نهاية السمات -->
-            
-            <!-- بداية النص العادي -->
-            <div>
-                <h3 class="text-uppercase mb-4">نص عادي</h3>
-                <div class="bg-light rounded text-center" style="padding: 30px;">
-                    <p>نقدم لكم محتوى ثري ومفيد يتناول كافة جوانب العمل والخدمات التي نقدمها. نضمن لكم تجربة مميزة ومفيدة، حيث يمكنكم الاستفادة من خبراتنا في مجالات متعددة.</p>
-                    <a href="about.php" class="btn bg-primary py-2 px-4">اقرأ المزيد</a>
-                </div>
-            </div>
-            <!-- نهاية النص العادي -->
-        </div>
-        <!-- نهاية الشريط الجانبي -->
-    </div>
-</div>
-    <!-- نهاية قسم المدونة -->
-<?php include("include/footer.php");?>
+              <!-- بداية النص العادي -->
+              <!-- <div>
+                  <h3 class="text-uppercase mb-4">نص عادي</h3>
+                  <div class="bg-light rounded text-center" style="padding: 30px;">
+                      <p>نقدم لكم محتوى ثري ومفيد يتناول كافة جوانب العمل والخدمات التي نقدمها. نضمن لكم تجربة مميزة ومفيدة، حيث يمكنكم الاستفادة من خبراتنا في مجالات متعددة.</p>
+                      <a href="about.php" class="btn bg-primary py-2 px-4">اقرأ المزيد</a>
+                  </div>
+              </div> -->
+              <!-- نهاية النص العادي -->
+          </div>
+          <!-- نهاية الشريط الجانبي -->
+      </div>
+  </div>
+  <!-- نهاية قسم المدونة -->
+  <?php include("include/footer.php"); ?>

@@ -1,16 +1,10 @@
+
+
 <?php
 include 'config.php';
 
 $result = mysqli_query($con, "SELECT * FROM blog_articles ORDER BY id DESC");
 ?>
-<?php
-session_start();
-
-if (!isset($_SESSION['auser'])) {
-    header("location:index.php");
-}
-?>
-
 
 
 <?php include("header.php"); ?>
@@ -47,9 +41,9 @@ if (!isset($_SESSION['auser'])) {
                                         <tr>
                                             <td><?php echo $row['id']; ?></td>
                                             <td><?php echo htmlspecialchars($row['title']); ?></td>
-                                            <td><img src="<?php echo htmlspecialchars($row['image']); ?>" alt="" style="max-height:50px;"></td>
+                                            <td><img src="uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="" style="max-height:50px;"></td>
                                             <td>
-                                                <a href="blog_details.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">عرض</a>
+                                                <!-- <a href="blog_details.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">عرض</a> -->
                                                 <a href="blog_edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">تعديل</a>
                                                 <a href="blog_delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('هل أنت متأكد من حذف هذا المقال؟');">حذف</a>
                                             </td>

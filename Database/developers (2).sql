@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 05 أغسطس 2025 الساعة 23:41
+-- Generation Time: 07 أغسطس 2025 الساعة 20:19
 -- إصدار الخادم: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -103,9 +103,9 @@ CREATE TABLE `blog_articles` (
 --
 
 INSERT INTO `blog_articles` (`id`, `title`, `short_details`, `full_details`, `image`) VALUES
-(1, 'تشطيب', 'تفاصيل مختصرة عن التشطيب...', 'تفاصيل كاملة وشاملة عن التشطيب وأنواعه وخطواته...', 'img/6.jpeg'),
-(2, 'احواش', 'مقدمة عن تصميم الأحواش...', 'شرح تفصيلي لأنواع الأحواش وطرق التصميم...', 'img/7.jpeg'),
-(3, 'ترميم', 'نبذة عن الترميم...', 'معلومات كاملة عن ترميم المباني وكيفية تنفيذها...', 'img/8.jpeg');
+(1, 'تشطيب', 'تفاصيل مختصرة عن التشطيب...', 'تفاصيل كاملة وشاملة عن التشطيب وأنواعه وخطواته...', '1754579120_5.jpeg'),
+(2, 'احواش', 'مقدمة عن تصميم الأحواش...', 'شرح تفصيلي لأنواع الأحواش وطرق التصميم...', '1754579161_9.jpeg'),
+(3, 'ترميم', 'نبذة عن الترميم...', 'معلومات كاملة عن ترميم المباني وكيفية تنفيذها...', '1754579181_10.jpeg');
 
 -- --------------------------------------------------------
 
@@ -125,9 +125,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `class_name`, `image`) VALUES
-(1, 'الكل', '*', 'img/30.jpeg'),
-(2, 'إنشاءات', 'first', 'img/31.jpeg'),
-(3, 'ترميم', 'second', 'img/32.jpeg');
+(1, 'الكل', '*', 'uploads/2.jpeg'),
+(2, 'إنشاءات', 'first', '1754579565_33.jpeg'),
+(3, 'ترميم', 'second', '1754579580_26.jpeg');
 
 -- --------------------------------------------------------
 
@@ -240,8 +240,11 @@ CREATE TABLE `project_images` (
 --
 
 INSERT INTO `project_images` (`id`, `project_id`, `image_path`) VALUES
-(1, 1, 'img/33.jpeg'),
-(2, 2, 'img/27.jpeg');
+(5, 1, '1754579837_20.jpeg'),
+(6, 1, '1754579837_b.jpg'),
+(7, 2, '1754579858_5.jpeg'),
+(8, 2, '1754579858_10.jpeg'),
+(9, 2, '1754579858_15.jpeg');
 
 -- --------------------------------------------------------
 
@@ -287,8 +290,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `name`, `description`, `icon_class`, `image`, `details_url`) VALUES
-(1, 'بناء عظم', 'نقدم خدمات بناء العظم بأعلى معايير الجودة والإتقان، باستخدام أفضل المواد لضمان متانة الهيكل.', 'fa-building', 'img/a.jpg', 'service_details.php?id=1'),
-(2, 'تصميم أحواش', 'تصاميم مبتكرة لأحواش المنازل والفلل، تجمع بين الجمال والوظائف العملية لتلبية احتياجاتك.', 'fa-tree', 'img/b.jpg', 'service_details.php?id=2');
+(1, 'بناء عظم', 'نقدم خدمات بناء العظم بأعلى معايير الجودة والإتقان، باستخدام أفضل المواد لضمان متانة الهيكل.', 'fa-building', '1754578120_29.jpeg', 'service_details.php?id=1'),
+(2, 'تصميم أحواش', 'تصاميم مبتكرة لأحواش المنازل والفلل، تجمع بين الجمال والوظائف العملية لتلبية احتياجاتك.', 'fa-tree', '1754578244_16.jpeg', 'service_details.php?id=2'),
+(3, 'بناء فلل', ' بناء فلل فاخرة بتصاميم عصرية وكلاسيكية، مع الحرص على تحقيق أعلى مستويات الجودة والرفاهية.', ' fa-home', 'c.jpg', 'service_details.php?id=3');
 
 -- --------------------------------------------------------
 
@@ -524,7 +528,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `project_images`
 --
 ALTER TABLE `project_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -536,7 +540,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `settings`

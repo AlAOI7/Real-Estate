@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_id = mysqli_insert_id($con);
 
     foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-        $file = 'img/' . $_FILES['images']['name'][$key];
+        $file = 'uploads/' . $_FILES['images']['name'][$key];
         move_uploaded_file($tmp_name, $file);
         mysqli_query($con, "INSERT INTO project_images (project_id, image_path) VALUES ('$project_id', '$file')");
     }

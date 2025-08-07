@@ -30,11 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // رفع صور جديدة
     if (!empty($_FILES['images']['name'][0])) {
-        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-            $image_path = 'uploads/' . time() . '_' . $_FILES['images']['name'][$key];
-            move_uploaded_file($tmp_name, $image_path);
-            mysqli_query($con, "INSERT INTO project_images (project_id, image_path) VALUES ($id, '$image_path')");
-        }
+      foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+    // اسم الصورة مع إضافة الوقت (لتجنب التكرار)
+    $image_name = time() . '_' . $_FILES['images']['name'][$key];
+    // مسار حفظ الصورة الفعلي في المجلد
+    $file_path = 'uploads/' . $image_name;
+    
+    // رفع الملف إلى المجلد
+    move_uploaded_file($tmp_name, $file_path);
+    
+    // تخزين اسم الملف فقط في قاعدة البيانات
+    mysqli_query($con, "INSERT INTO project_images (project_id, image_path) VALUES ($id, '$image_name')");
+}
     }
 
     echo "<script>alert('تم التعديل بنجاح'); window.location.href='projects.php';</script>";

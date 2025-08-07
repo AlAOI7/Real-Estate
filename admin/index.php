@@ -63,6 +63,8 @@
             <div class="loginbox">
                 <div class="login-right">
                     <div class="login-right-wrap">
+                    <div class="text-center dont-have"><a class="btn btn-danger btn-block" href="../index.php"> الصفحه الرئيسية</a></div>
+
                         <h1>تسجيل الدخول</h1>
                         <p class="account-subtitle">الوصول إلى لوحة التحكم لدينا</p>
                         <p style="color:red;"><?php echo $error; ?></p>

@@ -50,7 +50,7 @@ $result = mysqli_query($con, "SELECT * FROM services ORDER BY id DESC");
                 <td><?php echo $row['id']; ?></td>
                 <td><?php echo htmlspecialchars($row['name']); ?></td>
                 <td><i class="fa <?php echo htmlspecialchars($row['icon_class']); ?>"></i></td>
-                <td><img src="<?php echo htmlspecialchars($row['image']); ?>" alt="" style="max-height:50px;"></td>
+                <td><img src="uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="" style="max-height:50px;"></td>
                 <td><?php echo htmlspecialchars(mb_strimwidth($row['description'], 0, 50, '...')); ?></td>
                 <td>
                     <a href="service_edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">تعديل</a>
